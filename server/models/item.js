@@ -6,7 +6,10 @@ var ItemSchema = new Schema({
     price:Number,
     quantity:Number,
     rating:Number,
-    description:String
+    description:String,
+    rater:[String],
+    ratings:[String],
+    comments:[String]
 
 });
 

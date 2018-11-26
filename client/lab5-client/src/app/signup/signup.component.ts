@@ -19,12 +19,15 @@ export class SignupComponent implements OnInit {
   ngOnInit() {
   }
 
-  createUser(){
-    this.signUpService.signUp(this.userName, this.password, this.callBackFunction.bind(this));
+  createUser(email,pass){
+    this.signUpService.signUp(email, pass, this.callBackFunction.bind(this));
   }
 
   callBackFunction(res:string){
-
+    console.log(JSON.parse(JSON.stringify(res))._body);
+    if(JSON.parse(JSON.stringify(res))._body){
+      this.signUpMsg = JSON.parse(JSON.parse(JSON.stringify(res))._body).msg;
+    }
   }
 
 

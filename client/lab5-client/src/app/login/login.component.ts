@@ -8,6 +8,7 @@ import { CookieService } from 'ngx-cookie-service';
   styleUrls: ['./login.component.css'],
   providers:[LoginService]
 })
+
 export class LoginComponent implements OnInit {
 
   email:'';
@@ -18,11 +19,11 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(){
     this.loginMsg = '' ;
-
   }
 
-  login(){
-    this.loginService.verify(this.email, this.password, this.callBackFunction.bind(this));
+
+  login(email,pass){
+    this.loginService.verify(email,pass, this.callBackFunction.bind(this));
   }
 
   callBackFunction(res:string){
@@ -30,18 +31,12 @@ export class LoginComponent implements OnInit {
       this.loginMsg = JSON.parse(JSON.stringify(res)).message;
     }
     else{
-
       this.loginMsg = 'You are signed in';
-
-      this.email = '';
-      this.password = '';
 
     }
   }
 
-  signOut(){
 
-  }
 
 
 }

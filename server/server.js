@@ -1,4 +1,4 @@
-//index.js
+//server.js
 
 //BASE SETUP
 // =============================================================================
@@ -16,6 +16,7 @@ mongoose.set('useCreateIndex',true);
 var User = require('./models/userModel');
 var TempUser = require('./models/tempUserModel');
 var Item = require('./models/item');
+var Policy = require('./models/policy');
 
 //email verification
 var nev = require('email-verification')(mongoose);
@@ -34,9 +35,33 @@ var port = process.env.PORT || 3000;
 var router = express.Router();
 
 router.use(function(req,res,next){
+
+    res.setHeader("Access-Control-Allow-Origin", "*");
+    res.setHeader('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+    res.setHeader("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, access-control-allow-credentials, access-control-allow-origin");
+
     console.log('Something is happening.');
     next();
 });
+
+
+//Hashing Functions
+// =============================================================================
+
+// sync version of hashing function
+var myHasher = function(password, tempUserData, insertTempUser, callback) {
+    var hash = bcrypt.hashSync(password, bcrypt.genSaltSync(8), null);
+    return insertTempUser(hash, tempUserData, callback);
+};
+
+// async version of hashing function
+myHasher = function(password, tempUserData, insertTempUser, callback) {
+    bcrypt.genSalt(8, function(err, salt) {
+        bcrypt.hash(password, salt, function(err, hash) {
+            return insertTempUser(hash, tempUserData, callback);
+        });
+    });
+};
 
 
 // NEV configuration =====================
@@ -44,6 +69,7 @@ nev.configure({
     verificationURL: 'http://localhost:8080/api/email-verification/${URL}',
     persistentUserModel: User,
     tempUserCollection: 'tempUser',
+    expirationTime:600,
 
     transportOptions: {
         service: 'Gmail',
@@ -65,26 +91,15 @@ nev.configure({
         console.log(err);
         return;
     }
+    console.log('configured: ' + (typeof options === 'object'));
 });
 
 
+nev.configure({
+    tempUserModel:TempUser
+},function(error,options){
 
-
-// sync version of hashing function
-var myHasher = function(password, tempUserData, insertTempUser, callback) {
-    var hash = bcrypt.hashSync(password, bcrypt.genSaltSync(8), null);
-    return insertTempUser(hash, tempUserData, callback);
-};
-
-// async version of hashing function
-myHasher = function(password, tempUserData, insertTempUser, callback) {
-    bcrypt.genSalt(8, function(err, salt) {
-        bcrypt.hash(password, salt, function(err, hash) {
-            return insertTempUser(hash, tempUserData, callback);
-        });
-    });
-};
-
+});
 
 
 nev.generateTempUserModel(User,function(err,tempUserModel){
@@ -92,13 +107,9 @@ nev.generateTempUserModel(User,function(err,tempUserModel){
         console.log(err);
         return;
     }
+    console.log('generated temp user model: ' + (typeof tempUserModel === 'function'));
 });
 
-nev.configure({
-    tempUserModel:TempUser
-},function(error,options){
-
-});
 
 
 router.post('/signUp', function(req, res) {
@@ -227,15 +238,24 @@ router.route('/items')
         item.name = req.body.name;
         item.quantity = Number(req.body.quantity);
         item.description = req.body.description;
+        item.tax = req.body.tax;
 
-
-
-
+        item.save(function(err){
+            if(err){
+                res.send(err);
+            }
+            res.json({message: 'item created'});
+        })
 
     })
 
     .get(function(req,res){
-
+        Item.find(function(err,items){
+            if(err){
+                res.send(err);
+            }
+            res.json(items);
+        });
 
     });
 
@@ -244,16 +264,103 @@ router.route('/items')
 
 router.route('./items/:item_id')
     .get(function(req,res){
-
+        Item.findById(req.params.item_id, function(err,item){
+            if(err){
+                res.send(err);
+            }
+            res.json(item);
+        });
     })
 
     .put(function(req,res){
+        Item.findById(req.params.item_id,function(err,item){
+            if(err){
+                res.send(err);
+            }
+
+            item.name = req.body.mame;
+            item.price = req.body.price;
+            item.tax = req.body.tax;
+
+            item.save(function(err){
+                if(err){
+                    res.send(err);
+                }
+                res.json({message: 'Item updated'});
+            });
+        });
 
     })
 
     .delete(function(req,res){
+        Item.remove({
+            _id:req.params.item_id
+        },function(err,item){
+            if(err){
+                res.send(err);
+            }
+            res.json({message:'Successfully deleted'});
+        });
+
+    });
+
+
+
+// on routes that end in /privacy
+// ----------------------------------------------------
+router.route('/privacy')
+    .get(function(req,res){
+        Policy.findOne({name:'privacy'},function(err,returnedPolicy){
+            if(returnedPolicy == null){
+                var policy = new Policy();
+                policy.name = 'privacy';
+                policy.content = "Privacy Policy";
+                policy.save(function(err){
+                    if(err){
+                        res.send(err);
+                    }
+                    res.json({content:policy.content});
+                });
+            }else{
+                res.json(returnedPolicy);
+            }
+        });
 
     })
+
+// on routes that end in /dmca
+// ----------------------------------------------------
+router.route('/dmca')
+    .get(function(req,res){
+        Policy.findOne({name:'DMCA'},function(err,returned){
+            if(returned == null){
+                var policy = new Policy();
+                policy.name = 'DMCA';
+                policy.content = "DMCA Policy";
+                policy.save(function(err){
+                    if(err){
+                        res.send(err);
+                    }
+                    res.json({content:policy.content});
+                });
+            }else{
+                res.json(returned);
+            }
+        })
+
+    })
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
