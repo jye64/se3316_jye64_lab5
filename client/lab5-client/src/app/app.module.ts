@@ -8,13 +8,15 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { CookieService } from "ngx-cookie-service";
 import { SignupComponent } from './signup/signup.component';
+import { LandingComponent } from './landing/landing.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    SignupComponent
+    SignupComponent,
+    LandingComponent
   ],
   imports: [
     BrowserModule,

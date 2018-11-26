@@ -11,8 +11,6 @@ import { CookieService } from 'ngx-cookie-service';
 
 export class LoginComponent implements OnInit {
 
-  email:'';
-  password:'';
   loginMsg:String;
 
   constructor(private loginService:LoginService) { }

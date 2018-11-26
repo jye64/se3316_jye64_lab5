@@ -184,7 +184,7 @@ router.post('/signUp', function(req, res) {
 });
 
 
-//user clicks the link in the verification email
+// user accesses the link that is sent
 router.get('/email-verification/:URL', function(req, res) {
     var url = req.params.URL;
 

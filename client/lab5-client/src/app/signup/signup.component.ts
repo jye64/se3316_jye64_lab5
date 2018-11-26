@@ -10,8 +10,6 @@ import { CookieService } from 'ngx-cookie-service';
 })
 export class SignupComponent implements OnInit {
 
-  userName = '';
-  password = '';
   signUpMsg = '';
 
   constructor(private signUpService:SignupService, private cookieService:CookieService) { }
