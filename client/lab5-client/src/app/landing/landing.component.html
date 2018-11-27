@@ -5,13 +5,13 @@
 <hr>
 <div>
   <app-login *ngIf="login"></app-login>
-  <button (click)="showLogin()">
+  <button (click)="showLogin()" *ngIf="loginBtn">
     Login
   </button>
 
   <br>
   <app-signup *ngIf="signup"></app-signup>
-  <button (click)="showSignup()">
+  <button (click)="showSignup()" *ngIf="signupBtn">
     Sign Up
   </button>
 
@@ -28,7 +28,7 @@
 <div>
   <h2>Privacy Policy</h2>
   <button (click)="showPrivacy()">Check</button>
-
+  <button></button>
 </div>
 
 <hr>

@@ -314,7 +314,7 @@ router.route('/privacy')
             if(returnedPolicy == null){
                 var policy = new Policy();
                 policy.name = 'privacy';
-                policy.content = "Privacy Policy";
+                policy.content = 'Privacy Policy';
                 policy.save(function(err){
                     if(err){
                         res.send(err);

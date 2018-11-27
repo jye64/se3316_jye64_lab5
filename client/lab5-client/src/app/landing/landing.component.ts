@@ -12,6 +12,9 @@ export class LandingComponent implements OnInit {
   privacy:boolean = false;
   DMCA:boolean = false;
 
+  loginBtn:boolean = true;
+  signupBtn:boolean = true;
+
   constructor() { }
 
   ngOnInit() {
@@ -19,10 +22,12 @@ export class LandingComponent implements OnInit {
 
   showLogin(){
     this.login = !this.login;
+    this.loginBtn = !this.loginBtn;
   }
 
   showSignup(){
     this.signup = !this.signup;
+    this.signupBtn = !this.signupBtn;
   }
 
   showPrivacy(){

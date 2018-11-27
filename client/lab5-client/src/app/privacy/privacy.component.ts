@@ -12,6 +12,7 @@ export class PrivacyComponent implements OnInit {
   constructor() {
     //load privacy policy when the component is rendered
 
+
   }
 
   ngOnInit() {
