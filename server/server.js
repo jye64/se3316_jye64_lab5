@@ -111,7 +111,6 @@ nev.generateTempUserModel(User,function(err,tempUserModel){
 });
 
 
-
 router.post('/signUp', function(req, res) {
     console.log('post data received');
     var email = validator.escape(req.body.email);

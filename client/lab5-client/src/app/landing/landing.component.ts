@@ -21,22 +21,29 @@ export class LandingComponent implements OnInit {
   }
 
   showLogin(){
-    this.login = !this.login;
-    this.loginBtn = !this.loginBtn;
+    this.login = true;
+    this.loginBtn = false;
   }
 
   showSignup(){
-    this.signup = !this.signup;
-    this.signupBtn = !this.signupBtn;
+    this.signup = true;
+    this.signupBtn = false;
   }
 
   showPrivacy(){
-    this.privacy = !this.privacy;
+    this.privacy = true;
   }
 
   showDMCA(){
-    this.DMCA = !this.DMCA;
+    this.DMCA = true;
+  }
 
+  hidePrivacy(){
+    this.privacy = false;
+  }
+
+  hideDMCA(){
+    this.DMCA = false;
   }
 
 

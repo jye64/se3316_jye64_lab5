@@ -10,9 +10,9 @@ import { SignupComponent } from './signup/signup.component';
 import { LandingComponent } from './landing/landing.component';
 import { PrivacyComponent } from './privacy/privacy.component';
 import { DmcaComponent } from './dmca/dmca.component';
+import { CollectionComponent } from './collection/collection.component';
 
 import { CookieService } from "ngx-cookie-service";
-
 
 
 @NgModule({
@@ -22,7 +22,8 @@ import { CookieService } from "ngx-cookie-service";
     SignupComponent,
     LandingComponent,
     PrivacyComponent,
-    DmcaComponent
+    DmcaComponent,
+    CollectionComponent
   ],
   imports: [
     BrowserModule,
