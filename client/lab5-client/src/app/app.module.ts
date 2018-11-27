@@ -6,9 +6,13 @@ import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
-import { CookieService } from "ngx-cookie-service";
 import { SignupComponent } from './signup/signup.component';
 import { LandingComponent } from './landing/landing.component';
+import { PrivacyComponent } from './privacy/privacy.component';
+import { DmcaComponent } from './dmca/dmca.component';
+
+import { CookieService } from "ngx-cookie-service";
+
 
 
 @NgModule({
@@ -16,7 +20,9 @@ import { LandingComponent } from './landing/landing.component';
     AppComponent,
     LoginComponent,
     SignupComponent,
-    LandingComponent
+    LandingComponent,
+    PrivacyComponent,
+    DmcaComponent
   ],
   imports: [
     BrowserModule,
