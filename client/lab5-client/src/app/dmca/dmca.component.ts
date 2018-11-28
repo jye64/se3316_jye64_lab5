@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { DMCA} from "./DMCA";
+
 
 @Component({
   selector: 'app-dmca',
@@ -7,22 +9,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DmcaComponent implements OnInit {
 
-  policy:{name:'DMCA',content:''};
+  policy;
 
   constructor() {
     //load the DMCA policy when the component is rendered
-
-    var request = new Request('/api/dmca',{
-      method: 'GET'
+    var request = new Request('/dmca',{
+      method:'GET'
     });
-    var tt = this;
-    fetch(request).then( function(resp){
-      resp.json().then(function(data) {
-        console.log(data);
-        tt.policy.content = data.content;
 
+    var here = this;
+    fetch(request).then(function(res){
+      res.json().then(function(data){
+        console.log(data);
+        here.policy = data.content;
       });
-    }).catch(err =>{
+    }).catch(err=>{
       console.log(err);
     });
 
@@ -30,6 +31,7 @@ export class DmcaComponent implements OnInit {
   }
 
   ngOnInit() {
+
   }
 
 }

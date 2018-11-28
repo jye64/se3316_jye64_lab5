@@ -15,6 +15,7 @@ export class CollectionComponent implements OnInit {
   }
 
   getCollection(){
+    
 
   }
 

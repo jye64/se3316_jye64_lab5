@@ -13,7 +13,17 @@
     <input #pass type="password">
   </div>
 
-  <button (click)="login(Email.value,pass.value)">
+  <div>
+    <label>Admin:</label>
+    <input #admin type="checkbox">
+  </div>
+
+  <div>
+    <label>Admin Code</label>
+    <input #adminCode type="password">
+  </div>
+
+  <button (click)="login(Email.value,pass.value,admin.checked, adminCode.value)">
     Login
   </button>
 

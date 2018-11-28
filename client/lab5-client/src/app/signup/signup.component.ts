@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SignupService} from "../signup.service";
 import { CookieService } from 'ngx-cookie-service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-signup',
@@ -12,13 +13,15 @@ export class SignupComponent implements OnInit {
 
   signUpMsg = '';
 
-  constructor(private signUpService:SignupService, private cookieService:CookieService) { }
+  constructor(private signUpService:SignupService, private cookieService:CookieService, private route:Router) { }
 
   ngOnInit() {
   }
 
   createUser(email,pass){
     this.signUpService.signUp(email, pass, this.callBackFunction.bind(this));
+    this.route.navigateByUrl('/home');
+
   }
 
   callBackFunction(res:string){

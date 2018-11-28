@@ -5,10 +5,11 @@ var ItemSchema = new Schema({
     name:String,
     price:Number,
     quantity:Number,
+    tax:Number,
     rating:Number,
     description:String,
     rater:[String],
-    ratings:[String],
+    ratings:[Number],
     comments:[String]
 
 });

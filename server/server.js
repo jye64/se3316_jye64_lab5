@@ -30,18 +30,23 @@ var validator = require('validator');
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(bodyParser.json());
 
-var port = process.env.PORT || 3000;
+var port = 8081;
+
+var adminCode = 'webtech';
 
 var router = express.Router();
 
 router.use(function(req,res,next){
-
     res.setHeader("Access-Control-Allow-Origin", "*");
-    res.setHeader('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
-    res.setHeader("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, access-control-allow-credentials, access-control-allow-origin");
+    res.header("Access-Control-Allow-Headers","Origin, X-Requested-With, Content-Type, Accept");
+    res.header('Access-Controll-ALlow-Methods','POST,PATCH,GET,PUT,DELETE,OPTIONS');
 
     console.log('Something is happening.');
     next();
+});
+
+router.get('/', function(req, res) {
+    res.json({ message: 'welcome to our api' });
 });
 
 
@@ -111,8 +116,8 @@ nev.generateTempUserModel(User,function(err,tempUserModel){
 });
 
 
+//create a user account
 router.post('/signUp', function(req, res) {
-    console.log('post data received');
     var email = validator.escape(req.body.email);
     var password = validator.escape(req.body.password);
 
@@ -235,9 +240,10 @@ router.route('/items')
     .post(function(req,res){
         var item = new Item();
         item.name = req.body.name;
+        item.price = req.body.price;
         item.quantity = Number(req.body.quantity);
-        item.description = req.body.description;
         item.tax = req.body.tax;
+        item.description = req.body.description;
 
         item.save(function(err){
             if(err){
@@ -257,6 +263,7 @@ router.route('/items')
         });
 
     });
+
 
 // on routes that end in /items/:item_id
 // ----------------------------------------------------
@@ -279,7 +286,9 @@ router.route('./items/:item_id')
 
             item.name = req.body.mame;
             item.price = req.body.price;
+            item.quality = req.body.quantity;
             item.tax = req.body.tax;
+            item.description = req.body.description;
 
             item.save(function(err){
                 if(err){
@@ -309,53 +318,64 @@ router.route('./items/:item_id')
 // ----------------------------------------------------
 router.route('/privacy')
     .get(function(req,res){
-        Policy.findOne({name:'privacy'},function(err,returnedPolicy){
-            if(returnedPolicy == null){
+        Policy.findOne({name:"privacy"},function(err,returnedPolicy){
+            if(returnedPolicy==null){
                 var policy = new Policy();
-                policy.name = 'privacy';
-                policy.content = 'Privacy Policy';
+                policy.name="privacy";
+                policy.content = 'privacy policy as follows:';
                 policy.save(function(err){
                     if(err){
                         res.send(err);
                     }
+                    res.json({content:policy.content});
+                })
+            }
+            else{
+                res.json(returnedPolicy);
+            }
+        });
+    })
+
+    //Issue: cannot update content
+    .put(function(req, res) {
+        Policy.update({name: "privacy"}, {$set: {content: req.body.content}}, function (err) {
+            if (err){
+                res.send(err);
+            }
+            res.json({message: "privacy policy updated"});
+        });
+    })
+
+
+
+// on routes that end in /dmca
+// ----------------------------------------------------
+router.route('/dmca')
+    .get(function(req,res){
+        Policy.findOne({name:"DMCA"},function(err,returnedPolicy){
+            if(returnedPolicy==null){
+                var policy = new Policy();
+                policy.name="DMCA";
+                policy.content = "DMCA policy as follows";
+                policy.save(function(err){
+                    if(err) throw err;
                     res.json({content:policy.content});
                 });
             }else{
                 res.json(returnedPolicy);
             }
         });
-
     })
 
-// on routes that end in /dmca
-// ----------------------------------------------------
-router.route('/dmca')
-    .get(function(req,res){
-        Policy.findOne({name:'DMCA'},function(err,returned){
-            if(returned == null){
-                var policy = new Policy();
-                policy.name = 'DMCA';
-                policy.content = "DMCA Policy";
-                policy.save(function(err){
-                    if(err){
-                        res.send(err);
-                    }
-                    res.json({content:policy.content});
-                });
-            }else{
-                res.json(returned);
+    //Issue: cannot update content
+    .put(function(req, res) {
+        Policy.update({name: "DMCA" }, { $set: { content: req.body.content }}, function (err) {
+            if(err){
+                res.send(err);
             }
-        })
-
+            res.json({message:"DMCA policy updated"});
+        });
     })
-
-
-
-
-
-
-
-
 
 
 

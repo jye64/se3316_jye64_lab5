@@ -11,8 +11,10 @@ import { LandingComponent } from './landing/landing.component';
 import { PrivacyComponent } from './privacy/privacy.component';
 import { DmcaComponent } from './dmca/dmca.component';
 import { CollectionComponent } from './collection/collection.component';
+import { HomeComponent } from './home/home.component';
 
 import { CookieService } from "ngx-cookie-service";
+import { AdminComponent } from './admin/admin.component';
 
 
 @NgModule({
@@ -23,7 +25,9 @@ import { CookieService } from "ngx-cookie-service";
     LandingComponent,
     PrivacyComponent,
     DmcaComponent,
-    CollectionComponent
+    CollectionComponent,
+    HomeComponent,
+    AdminComponent
   ],
   imports: [
     BrowserModule,

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { LoginService} from "../login.service";
-import { CookieService } from 'ngx-cookie-service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -13,15 +13,20 @@ export class LoginComponent implements OnInit {
 
   loginMsg:String;
 
-  constructor(private loginService:LoginService) { }
+  constructor(private loginService:LoginService, private router:Router) { }
 
   ngOnInit(){
     this.loginMsg = '' ;
   }
 
 
-  login(email,pass){
+  login(email,pass,check,code){
     this.loginService.verify(email,pass, this.callBackFunction.bind(this));
+    if((check === true) && (code == "webtech")){
+      this.router.navigateByUrl('/admin');
+      alert(check);
+    }
+
   }
 
   callBackFunction(res:string){
@@ -30,8 +35,8 @@ export class LoginComponent implements OnInit {
     }
     else{
       this.loginMsg = 'You are signed in';
-
     }
+    this.router.navigateByUrl('/home');
   }
 
 
