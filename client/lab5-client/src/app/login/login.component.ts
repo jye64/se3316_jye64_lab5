@@ -22,10 +22,9 @@ export class LoginComponent implements OnInit {
 
   login(email,pass,check,code){
     this.loginService.verify(email,pass, this.callBackFunction.bind(this));
-    if((check === true) && (code == "webtech")){
-      this.router.navigateByUrl('/admin');
-      alert(check);
-    }
+    // if((check === true) && (code == "webtech")){
+    //   this.router.navigateByUrl('/admin');
+    // }
 
   }
 
@@ -36,7 +35,7 @@ export class LoginComponent implements OnInit {
     else{
       this.loginMsg = 'You are signed in';
     }
-    this.router.navigateByUrl('/home');
+    // this.router.navigateByUrl('/home');
   }
 
 

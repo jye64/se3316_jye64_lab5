@@ -1,11 +1,37 @@
 
-<h2>Welcome to Admin Page</h2>
+<h3>Welcome to Admin Page</h3>
 <hr>
 
-<h2>DMCA Takedown Procedure</h2>
+<h3>DMCA Takedown Procedure</h3>
 <ol>
-  <li>Something to do...so on</li>
+  <li>Check webtech3316@gmail.com for incoming requests.</li>
+  <li>Determine if there is reasonably sufficient evidence to allow us to identify the collection which has infringed.</li>
+  <li>By using the searching functionality on admin page, locate and disable the disputed collection</li>
+  <li>Log the infringement notice and takedown </li>
+  <li>If the infringing user submits a counter claim, log this is as a disputed collection</li>
+  <li>Notify the issuer of the initial complaint about counter claim, and ask for further evidence</li>
+  <li>If the initial issuer does not respond within 14 business days, re-enable the disputed collection and remove it from the disputed log section</li>
 </ol>
 
 <hr>
-<h2>Log request, notice, disputes...</h2>
+<h3>Log request, notice, disputes...</h3>
+<ul>
+  <li *ngFor = "let log of logs">
+    {{log}}
+  </li>
+</ul>
+
+<hr>
+<h3>Search Collections</h3>
+<input type="text" #searchInput placeholder="Search">
+<button (click)="searchCollection()">Search</button>
+<ul>
+  <li *ngFor = "let collection of collections">
+    {{collection.name}}
+    <button (click)="enable()">Enable</button>
+    <button (click)="disable()">Disable</button>
+  </li>
+</ul>
+
+<hr>
+

@@ -19,7 +19,7 @@ var Item = require('./models/item');
 var Policy = require('./models/policy');
 
 //email verification
-var nev = require('email-verification')(mongoose);
+var nev = require('./backend_modules/email-verification')(mongoose);
 
 //for hashing
 var bcrypt = require('bcrypt');
@@ -71,7 +71,7 @@ myHasher = function(password, tempUserData, insertTempUser, callback) {
 
 // NEV configuration =====================
 nev.configure({
-    verificationURL: 'http://localhost:8080/api/email-verification/${URL}',
+    verificationURL: 'http://localhost:8081/api/email-verification/${URL}',
     persistentUserModel: User,
     tempUserCollection: 'tempUser',
     expirationTime:600,
@@ -118,6 +118,7 @@ nev.generateTempUserModel(User,function(err,tempUserModel){
 
 //create a user account
 router.post('/signUp', function(req, res) {
+    console.log('user attempts to sign up');
     var email = validator.escape(req.body.email);
     var password = validator.escape(req.body.password);
 
@@ -151,7 +152,7 @@ router.post('/signUp', function(req, res) {
 
                 nev.sendVerificationEmail(email, URL, function(err, info) {
                     if (err) {
-                        return res.status(404).send('ERROR: sending verification email FAILED');
+                        return res.status(404).send(err);
                     }
                     console.log('sending verification email');
                     res.json({
@@ -175,6 +176,7 @@ router.post('/signUp', function(req, res) {
                 return res.status(404).send('ERROR: resending verification email FAILED');
             }
             if (userFound) {
+                console.log('resent verification email');
                 res.json({
                     msg: 'An email has been sent to you, yet again. Please check it to verify your account.'
                 });
@@ -191,6 +193,7 @@ router.post('/signUp', function(req, res) {
 // user accesses the link that is sent
 router.get('/email-verification/:URL', function(req, res) {
     var url = req.params.URL;
+    console.log('user accesses the link that is sent');
 
     nev.confirmTempUser(url, function(err, user) {
         if (user) {
@@ -336,7 +339,7 @@ router.route('/privacy')
         });
     })
 
-    //Issue: cannot update content
+
     .put(function(req, res) {
         Policy.update({name: "privacy"}, {$set: {content: req.body.content}}, function (err) {
             if (err){

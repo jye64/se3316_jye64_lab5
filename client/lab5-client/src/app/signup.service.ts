@@ -12,7 +12,7 @@ export class SignupService {
 
   signUp(email:string, password:string, callBackFunction){
 
-    this.httpClient.post('/api/signUp',{
+    this.httpClient.post('http://localhost:8081/api/signUp',{
       email:email,
       password:password,
       type:'register'
@@ -21,5 +21,16 @@ export class SignupService {
       callBackFunction(res);
     })
 
+  }
+
+  resend(email:string,password:string,callBackFunction){
+    this.httpClient.post('http://localhost:8081/api/signUp',{
+      email:email,
+      password:password,
+      type:'resend'
+    }).subscribe(function(res){
+      console.log(res);
+      callBackFunction(res);
+    })
   }
 }

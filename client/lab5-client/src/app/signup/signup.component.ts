@@ -20,8 +20,7 @@ export class SignupComponent implements OnInit {
 
   createUser(email,pass){
     this.signUpService.signUp(email, pass, this.callBackFunction.bind(this));
-    this.route.navigateByUrl('/home');
-
+    // this.route.navigateByUrl('/home');
   }
 
   callBackFunction(res:string){
@@ -29,6 +28,10 @@ export class SignupComponent implements OnInit {
     if(JSON.parse(JSON.stringify(res))._body){
       this.signUpMsg = JSON.parse(JSON.parse(JSON.stringify(res))._body).msg;
     }
+  }
+
+  resend(email,pass){
+    this.signUpService.resend(email,pass,this.callBackFunction.bind(this));
   }
 
 
