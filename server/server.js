@@ -5,6 +5,7 @@
 
 var express = require('express');
 var app = express();
+var cors = require('cors');
 var bodyParser = require('body-parser');
 
 //connect database
@@ -29,6 +30,7 @@ var validator = require('validator');
 
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(bodyParser.json());
+app.use(cors());
 
 var port = 8081;
 
@@ -37,6 +39,7 @@ var adminCode = 'webtech';
 var router = express.Router();
 
 router.use(function(req,res,next){
+    res.header('Access-Control-Allow-Origin','*');
     res.setHeader("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers","Origin, X-Requested-With, Content-Type, Accept");
     res.header('Access-Controll-ALlow-Methods','POST,PATCH,GET,PUT,DELETE,OPTIONS');
@@ -236,17 +239,22 @@ router.get('/login?:query', function (req, res){
 });
 
 
-// on routes that end in /items
+// on routes that end in /publicitems
 // ----------------------------------------------------
 
-router.route('/items')
+router.route('/publicitems')
     .post(function(req,res){
         var item = new Item();
         item.name = req.body.name;
         item.price = req.body.price;
-        item.quantity = Number(req.body.quantity);
-        item.tax = req.body.tax;
         item.description = req.body.description;
+        item.comment = req.body.comment;
+        item.rating = req.body.rating;
+
+        item.quantity = req.body.quantity;
+        item.tax = req.body.tax;
+        item.rater = req.body.rater;
+        item.priv = req.body.priv;
 
         item.save(function(err){
             if(err){
@@ -254,11 +262,10 @@ router.route('/items')
             }
             res.json({message: 'item created'});
         })
-
     })
 
     .get(function(req,res){
-        Item.find(function(err,items){
+        Item.find({priv:false},function(err,items){
             if(err){
                 res.send(err);
             }

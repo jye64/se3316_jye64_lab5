@@ -3,7 +3,7 @@
 <form>
   <div>
     <label>Email</label>
-    <input #Email type="text">
+    <input #Email type="email">
   </div>
 
   <div>
@@ -17,5 +17,5 @@
 
   <button (click)="resend(Email.value,pass.value)">Resend Verification</button>
 
-  <!--//{{signUpMsg}}-->
+  {{signUpMsg}}
 </form>
