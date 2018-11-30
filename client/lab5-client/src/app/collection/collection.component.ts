@@ -16,11 +16,12 @@ export class CollectionComponent implements OnInit {
     this.getCollection();
   }
 
-  //user click the collection name
+  //user click the collection name, hence display the details of the item
   showInfo(){
-    this.show = true;
+    this.show = !this.show;
   }
 
+  // return public collections on public landing page
   getCollection(){
     var request = new Request('http://localhost:8081/api/publicitems',{
       method: 'GET',

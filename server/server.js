@@ -7,6 +7,7 @@ var express = require('express');
 var app = express();
 var cors = require('cors');
 var bodyParser = require('body-parser');
+var jwt = require('jsonwebtoken');
 
 //connect database
 var mongoose = require('mongoose');
@@ -18,6 +19,9 @@ var User = require('./models/userModel');
 var TempUser = require('./models/tempUserModel');
 var Item = require('./models/item');
 var Policy = require('./models/policy');
+var Cart = require('./models/cart');
+var UserItem = require('./models/userItem');
+
 
 //email verification
 var nev = require('./backend_modules/email-verification')(mongoose);
@@ -33,8 +37,6 @@ app.use(bodyParser.json());
 app.use(cors());
 
 var port = 8081;
-
-var adminCode = 'webtech';
 
 var router = express.Router();
 
@@ -119,7 +121,9 @@ nev.generateTempUserModel(User,function(err,tempUserModel){
 });
 
 
-//create a user account
+
+// Sign Up
+// =============================================================================
 router.post('/signUp', function(req, res) {
     console.log('user attempts to sign up');
     var email = validator.escape(req.body.email);
@@ -239,9 +243,10 @@ router.get('/login?:query', function (req, res){
 });
 
 
+
+
 // on routes that end in /publicitems
 // ----------------------------------------------------
-
 router.route('/publicitems')
     .post(function(req,res){
         var item = new Item();
@@ -274,6 +279,104 @@ router.route('/publicitems')
 
     });
 
+// on routes that end in /userItems
+// ----------------------------------------------------
+router.route('/useritems')
+    .post(function(req,res){
+        var userItem = new UserItem();
+        userItem.name = req.body.name;
+        userItem.price = req.body.price;
+        userItem.description = req.body.description;
+        userItem.comment = req.body.comment;
+        userItem.rating = req.body.rating;
+
+        userItem.quantity = req.body.quantity;
+        userItem.tax = req.body.tax;
+        userItem.rater = req.body.rater;
+        userItem.priv = req.body.priv;
+
+        userItem.save(function(err){
+            if(err){
+                res.send(err);
+            }
+            res.json({message: 'item created'});
+        })
+    })
+
+    .put(function(req,res){
+        UserItem.update({ name:req.body.name },
+            { $set: {
+                    name:req.body.name,
+                    quantity:req.body.quantity}},
+            function (err, newCart) {
+                if (err) return handleError(err);
+                res.json({message:"Saved"});
+            });
+
+    })
+
+    .get(function(req,res){
+        UserItem.find(function(err,userItem){
+            if(err){
+                res.send(err);
+            }
+            res.json(userItem);
+        });
+    });
+
+
+// on routes that end in /addCart
+// ----------------------------------------------------
+router.route('/addCart')
+    .post(function(req,res){
+        var cart = new Cart();
+        cart.name = req.body.name;
+        cart.quantity = req.body.quantity;
+
+        cart.save(function(err){
+            if(err){
+                res.send(err);
+            }
+            res.json({message:'added to cart'});
+        })
+    })
+
+    .put(function(req,res){
+        Cart.update({ name:req.body.name },
+            { $set: {
+                    name:req.body.name,
+                    quantity:req.body.quantity}},
+            function (err, newCart) {
+                if (err) return handleError(err);
+                res.json({message:"Saved"});
+            });
+
+    })
+
+    .get(function(req,res){
+        Cart.find(function(err,cart){
+            if(err){
+                res.send(err);
+            }
+            res.json(cart);
+        });
+    })
+
+
+    .delete(function(req,res){
+        Cart.deleteMany({
+            name:req.body.name
+        },function(err,cart){
+            if(err){
+                res.send(err);
+            }
+            res.json({message:'Successfully deleted'});
+        });
+    });
+
+
+
+
 
 // on routes that end in /items/:item_id
 // ----------------------------------------------------
@@ -294,7 +397,7 @@ router.route('./items/:item_id')
                 res.send(err);
             }
 
-            item.name = req.body.mame;
+            item.name = req.body.name;
             item.price = req.body.price;
             item.quality = req.body.quantity;
             item.tax = req.body.tax;
@@ -311,7 +414,7 @@ router.route('./items/:item_id')
     })
 
     .delete(function(req,res){
-        Item.remove({
+        Item.deleteOne({
             _id:req.params.item_id
         },function(err,item){
             if(err){

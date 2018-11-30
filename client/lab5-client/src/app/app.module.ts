@@ -12,9 +12,10 @@ import { PrivacyComponent } from './privacy/privacy.component';
 import { DmcaComponent } from './dmca/dmca.component';
 import { CollectionComponent } from './collection/collection.component';
 import { HomeComponent } from './home/home.component';
+import { AdminComponent } from './admin/admin.component';
 
 import { CookieService } from "ngx-cookie-service";
-import { AdminComponent } from './admin/admin.component';
+
 
 
 @NgModule({

@@ -1,14 +1,64 @@
 
+<!-- This is the home page of authenticated users-->
+<!-- ================================================-->
+
 <h2>Welcome</h2>
 
 <hr>
 <h2>Collections</h2>
 
-<div>
-  <ul *ngFor = "let collection of collections">
-    {{ collection }}
-    <button>Remove</button>
-    <button>Edit</button>
-    <button>Add</button>
-  </ul>
+<div class="row" style="margin-bottom:10px;">
+  <div class="text-center col-lg-4 col-md-12 col-sm-12 col-xs-12" *ngFor="let collection of collections" style="margin-bottom:5px;">
+    <button (click)="showInfo()" class=" btn btn-default col-12" style="margin-bottom:5px; width:100%;"><b>{{collection.name}}</b></button>
+    <h5 class="text-center">Rating: {{collection.rating}}</h5>
+    <h5 *ngIf="show" class="text-center">Price:{{collection.price}}</h5>
+    <h5 *ngIf="show" class="text-center">Description: {{collection.description}}</h5>
+    <h5 *ngIf="show" class="text-center">Comments: {{collection.comment}}</h5>
+    <h5 *ngIf="show" class="text-center">commenter: {{collection.rater}}</h5>
+    <h5 *ngIf="show" class="text-center">Stock: {{collection.quantity}}</h5>
+  </div>
 </div>
+
+<hr>
+<h2>Shopping Cart</h2>
+
+<div style="float:left" id="cart">
+  <div class="text-center col-lg-4 col-md-12 col-sm-12 col-xs-12" *ngFor="let cart of carts" style="margin-bottom:5px;">
+    <label class=" btn btn-default col-12" style="margin-bottom:5px; width:100%;"><b>{{cart.name}}</b></label>
+    <h5 class="text-center">Quantity: {{cart.quantity}}</h5>
+    <hr>
+  </div>
+  <button (click)="buy()">Buy</button>
+</div>
+
+
+
+<div style="float:right" id="control">
+  <h3>Add to Basket</h3>
+  <div>
+    Name <input type = "text" #name >
+    <br>
+    Quantity <input type = "number" #quantity>
+    <br>
+    <button (click)="addToCart(name.value,quantity.value)">Add</button>
+  </div>
+
+  <h3>Update Cart Quantity</h3>
+  <div>
+    Name <input type="text" #itemname >
+    <br>
+    Quantity <input type = "number" #itemquantity>
+    <br>
+    <button (click)="updateQuan(itemname.value,itemquantity.value)">Update</button>
+  </div>
+
+  <h3>Delete Item</h3>
+  <input type="text" #delete>
+  <br>
+  <button (click)="deleteItem(delete.value)">Delete</button>
+
+  <br><br>
+  <button (click)="clearCart()">Clear Shopping Cart</button>
+</div>
+
+
