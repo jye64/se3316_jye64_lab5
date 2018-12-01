@@ -16,6 +16,11 @@
     <h5 *ngIf="show" class="text-center">Comments: {{collection.comment}}</h5>
     <h5 *ngIf="show" class="text-center">commenter: {{collection.rater}}</h5>
     <h5 *ngIf="show" class="text-center">Stock: {{collection.quantity}}</h5>
+    <h5 *ngIf="show" class="text-center">Add Comment Here:</h5>
+    <input *ngIf="show" #cName placeholder="item">
+    <input *ngIf="show" placeholder="comment here" #comment>
+    <button *ngIf="show" (click)="submitComment()">Submit Comment</button>
+
   </div>
 </div>
 
@@ -24,7 +29,7 @@
 
 <div style="float:left" id="cart">
   <div class="text-center col-lg-4 col-md-12 col-sm-12 col-xs-12" *ngFor="let cart of carts" style="margin-bottom:5px;">
-    <label class=" btn btn-default col-12" style="margin-bottom:5px; width:100%;"><b>{{cart.name}}</b></label>
+    <label #item class=" btn btn-default col-12" style="margin-bottom:5px; width:100%;"><b>{{cart.name}}</b></label>
     <h5 class="text-center">Quantity: {{cart.quantity}}</h5>
     <hr>
   </div>

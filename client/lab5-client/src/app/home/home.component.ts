@@ -16,7 +16,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     this.getCollection();
-    this.getCart();
+    this.updateCart();
   }
 
   showInfo(){
@@ -51,15 +51,22 @@ export class HomeComponent implements OnInit {
       console.log(res);
     })
     this.ensureStock(name,quan);
-    this.updateView();
+    this.updateCart();
   }
 
+  // need fix
   clearCart(){
-
+    this.carts = [];
   }
 
   updateQuan(name,quan){
-
+    this.httpClient.put('http://localhost:8081/api/addCart',{
+      name:name,
+      quantity:quan,
+    }).subscribe(function(res){
+      console.log(res);
+    })
+    this.updateCart();
   }
 
   //not working
@@ -72,10 +79,11 @@ export class HomeComponent implements OnInit {
         'Access-Control-Allow-Origin':'*'
       })
     });
-    this.updateView();
+    this.updateCart();
   }
 
-  updateView(){
+  // update cart view
+  updateCart(){
     var request = new Request('http://localhost:8081/api/addCart',{
       method: 'GET',
       headers: new Headers({
@@ -93,28 +101,18 @@ export class HomeComponent implements OnInit {
     });
   }
 
-  //return the stored shopping cart items
-  getCart(){
-    var request = new Request('http://localhost:8081/api/addCart',{
-      method: 'GET',
-      headers: new Headers({
-        'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8',
-        'Access-Control-Allow-Origin':'*'
-      })
-    });
-    var here = this;
-    fetch(request).then( function(resp){
-      resp.json().then(function(data) {
-        here.carts = data;
-      });
-    }).catch(err =>{
-      console.log(err);
-    });
-  }
 
   // track stock level, update quantity in userItems
   ensureStock(name,quan){
 
+
   }
+
+  buy(){
+
+
+  }
+
+
 
 }
