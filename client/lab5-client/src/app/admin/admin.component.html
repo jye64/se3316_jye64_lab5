@@ -2,13 +2,23 @@
 <h3>Welcome to Admin Page</h3>
 <hr>
 
+<h3>Record Disputes</h3>
+<label>Type</label>
+<input type="text" #logtype placeholder="type">
+<label>content</label>
+<input type="text" #logcontent placeholder="content">
+<button (click)="submitLog(logtype.value,logcontent.value)">submit</button>
+
+
+
+<hr>
 <h3>DMCA Takedown Procedure</h3>
 <ol>
-  <li>Check webtech3316@gmail.com for incoming requests.</li>
-  <li>Determine if there is reasonably sufficient evidence to allow us to identify the collection which has infringed.</li>
-  <li>By using the searching functionality on admin page, locate and disable the disputed collection</li>
-  <li>Log the infringement notice and takedown </li>
-  <li>If the infringing user submits a counter claim, log this is as a disputed collection</li>
+  <li>Check webtech3316@gmail.com for dispute requests.</li>
+  <li>Ensure that requests identify the infringed item name and username.</li>
+  <li>By using the searching functionality on admin page, disable the disputed collection by clicking the disable button</li>
+  <li>Use to log request tool to log the infringement notice and takedown. </li>
+  <li>If the infringing user submits a counter claim, log this is as a disputed collection.</li>
   <li>Notify the issuer of the initial complaint about counter claim, and ask for further evidence</li>
   <li>If the initial issuer does not respond within 14 business days, re-enable the disputed collection and remove it from the disputed log section</li>
 </ol>
@@ -17,7 +27,8 @@
 <h3>Log request, notice, disputes...</h3>
 <ul>
   <li *ngFor = "let log of logs">
-    {{log}}
+    <h4>{{log.type}}</h4>
+    <p>{{log.description}}</p>
   </li>
 </ul>
 
@@ -33,5 +44,17 @@
   </li>
 </ul>
 
+
 <hr>
+<h3>Edit Privacy and Security</h3>
+<label>Content:</label>
+<textarea #privacy></textarea>
+<button (click)="savePrivacy()">Save</button>
+
+
+<hr>
+<h3>Edit DMCA</h3>
+<label>Contents:</label>
+<textarea #dmca></textarea>
+<button (click)="saveDMCA()">Save</button>
 

@@ -10,109 +10,127 @@ export class HomeComponent implements OnInit {
 
   collections;
   carts;
-  show:boolean = false;
+  show: boolean = false;
 
-  constructor(private httpClient:HttpClient) { }
+  constructor(private httpClient: HttpClient) {
+  }
 
   ngOnInit() {
     this.getCollection();
     this.updateCart();
   }
 
-  showInfo(){
+  showInfo() {
     this.show = !this.show;
   }
 
   //return user collection from userItems
-  getCollection(){
-    var request = new Request('http://localhost:8081/api/useritems',{
+  getCollection() {
+    var request = new Request('http://localhost:8081/api/useritems', {
       method: 'GET',
       headers: new Headers({
         'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8',
-        'Access-Control-Allow-Origin':'*'
+        'Access-Control-Allow-Origin': '*'
       })
     });
     var here = this;
-    fetch(request).then( function(resp){
-      resp.json().then(function(data) {
+    fetch(request).then(function (resp) {
+      resp.json().then(function (data) {
         here.collections = data;
       });
-    }).catch(err =>{
+    }).catch(err => {
       console.log(err);
     });
   }
 
 
-  addToCart(name,quan){
-    this.httpClient.post('http://localhost:8081/api/addCart',{
-      name:name,
-      quantity:quan,
-    }).subscribe(function(res){
+  addToCart(name, quan) {
+    this.httpClient.post('http://localhost:8081/api/addCart', {
+      name: name,
+      quantity: quan,
+    }).subscribe(function (res) {
       console.log(res);
     })
-    this.ensureStock(name,quan);
+    //this.ensureStock(name, quan);
     this.updateCart();
   }
 
   // need fix
-  clearCart(){
+  clearCart() {
     this.carts = [];
   }
 
-  updateQuan(name,quan){
-    this.httpClient.put('http://localhost:8081/api/addCart',{
-      name:name,
-      quantity:quan,
-    }).subscribe(function(res){
+  updateQuan(name, quan) {
+    this.httpClient.put('http://localhost:8081/api/addCart', {
+      name: name,
+      quantity: quan,
+    }).subscribe(function (res) {
       console.log(res);
     })
     this.updateCart();
   }
 
   //not working
-  deleteItem(name){
-    var request = new Request('http://localhost:8081/api/addCart',{
+  deleteItem(name) {
+    var request = new Request('http://localhost:8081/api/addCart', {
       method: 'DELETE',
-      body: JSON.stringify({name:name}),
+      body: JSON.stringify({name: name}),
       headers: new Headers({
         'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8',
-        'Access-Control-Allow-Origin':'*'
+        'Access-Control-Allow-Origin': '*'
       })
     });
     this.updateCart();
   }
 
   // update cart view
-  updateCart(){
-    var request = new Request('http://localhost:8081/api/addCart',{
+  updateCart() {
+    var request = new Request('http://localhost:8081/api/addCart', {
       method: 'GET',
       headers: new Headers({
         'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8',
-        'Access-Control-Allow-Origin':'*'
+        'Access-Control-Allow-Origin': '*'
       })
     });
     var here = this;
-    fetch(request).then( function(resp){
-      resp.json().then(function(data) {
+    fetch(request).then(function (resp) {
+      resp.json().then(function (data) {
         here.carts = data;
       });
-    }).catch(err =>{
+    }).catch(err => {
       console.log(err);
     });
   }
 
 
   // track stock level, update quantity in userItems
-  ensureStock(name,quan){
-
-
-  }
-
-  buy(){
-
+  ensureStock(name, quan) {
 
   }
 
+  buy() {
+  }
+
+  submitRating(name,rate){
+    this.httpClient.put('http://localhost:8081/api/useritems', {
+      name: name,
+      rating:rate
+    }).subscribe(function (res) {
+      console.log(res);
+    })
+
+  }
+
+  submitComment(name,comment){
+    this.httpClient.put('http://localhost:8081/api/useritems', {
+      name: name,
+      comment:comment
+    }).subscribe(function (res) {
+      console.log(res);
+    })
+
+  }
 
 
 }
+

@@ -7,6 +7,7 @@
     <button (click)="showInfo()" class=" btn btn-default col-12" style="margin-bottom:5px; width:100%;"><b>{{collection.name}}</b></button>
     <h5 class="text-center">Rating: {{collection.rating}}</h5>
     <h5 *ngIf="show" class="text-center">Price:{{collection.price}}</h5>
+    <h5 *ngIf="show" class="text-center">Stock:{{collection.quantity}}</h5>
     <h5 *ngIf="show" class="text-center">Description: {{collection.description}}</h5>
     <h5 *ngIf="show" class="text-center">Comments: {{collection.comment}}</h5>
     <h5 *ngIf="show" class="text-center">commenter: {{collection.rater}}</h5>

@@ -21,6 +21,7 @@ var Item = require('./models/item');
 var Policy = require('./models/policy');
 var Cart = require('./models/cart');
 var UserItem = require('./models/userItem');
+var Log = require('./models/log');
 
 
 //email verification
@@ -304,14 +305,19 @@ router.route('/useritems')
     })
 
     .put(function(req,res){
-        UserItem.update({ name:req.body.name },
-            { $set: {
-                    name:req.body.name,
-                    quantity:req.body.quantity}},
-            function (err, newCart) {
-                if (err) return handleError(err);
-                res.json({message:"Saved"});
-            });
+        UserItem.findOne({name:req.body.name},function(err,userItem){
+            if(err){
+                res.send(err);
+            }
+            userItem.comment.push(req.body.comment);
+            userItem.rating.push(req.body.rating);
+            userItem.save(function(err,item){
+                if(err){
+                    throw err;
+                }
+                res.json({message:'updated'});
+            })
+        })
 
     })
 
@@ -342,7 +348,7 @@ router.route('/addCart')
     })
 
     .put(function(req,res){
-        Cart.update({ name:req.body.name },
+        Cart.updateOne({ name:req.body.name },
             { $set: {
                     name:req.body.name,
                     quantity:req.body.quantity}},
@@ -375,13 +381,48 @@ router.route('/addCart')
     });
 
 
+// on routes that end in /log
+// ----------------------------------------------------
+router.route('/log')
+    .get(function(req,res){
+        Log.find(function(err,logs){
+            if(err){
+                res.send(err);
+            }
+            res.json(logs);
+        });
+    })
+
+    .delete(function(req,res){
+        Log.deleteOne({
+            type:req.body.type
+        },function(err,log){
+            if(err){
+                res.send(err);
+            }
+            res.json({message:'successfully deleted'});
+        });
+    })
+
+    .post(function(req,res){
+        var log = new Log();
+        log.type = req.body.type;
+        log.description = req.body.description;
+        log.save(function(err){
+            if(err){
+                res.send(err);
+            }
+            res.json({message:'log saved'});
+        });
+    });
+
 
 
 
 // on routes that end in /items/:item_id
 // ----------------------------------------------------
 
-router.route('./items/:item_id')
+router.route('/items/:item_id')
     .get(function(req,res){
         Item.findById(req.params.item_id, function(err,item){
             if(err){
