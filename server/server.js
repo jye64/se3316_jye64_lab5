@@ -275,7 +275,15 @@ router.route('/publicitems')
             if(err){
                 res.send(err);
             }
-            res.json(items);
+            items.sort(function(b,a){
+                return a.rating-b.rating;
+            });
+            var itemToSend = [];
+            for(var i = 0;i<items.length; i++){
+                itemToSend.push(items[i]);
+            }
+            res.send(itemToSend);
+
         });
 
     });
@@ -326,7 +334,14 @@ router.route('/useritems')
             if(err){
                 res.send(err);
             }
-            res.json(userItem);
+            userItem.sort(function(b,a){
+                return a.rating-b.rating;
+            });
+            var userItemToSend = [];
+            for(var i=0;i<userItem.length;i++){
+                userItemToSend.push(userItem[i]);
+            }
+            res.send(userItemToSend);
         });
     });
 
