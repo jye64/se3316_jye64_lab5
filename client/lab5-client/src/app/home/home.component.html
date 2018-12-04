@@ -23,9 +23,9 @@
     <button *ngIf="show" (click)="submitComment(cName.value,cComment.value)">Save</button>
 
     <h5 *ngIf="show" class="text-center">Add Rating Here:</h5>
-    <input *ngIf="show" type="text" #rName placeholder="item">
-    <input *ngIf="show" type="text" #rating placeholder="rating">
-    <button *ngIf="show" (click)="submitRating(rName.value,rating.value)">Save</button>
+    <input type="text" #rName placeholder="item">
+    <input type="text" #rating placeholder="rating">
+    <button (click)="submitRating(rName.value,rating.value)">Save</button>
 
   </div>
 </div>

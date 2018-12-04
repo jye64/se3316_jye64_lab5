@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 
 @Component({
   selector: 'app-admin',
@@ -9,12 +9,15 @@ import { HttpClient } from '@angular/common/http';
 export class AdminComponent implements OnInit {
 
   logs = [];
+  collections = [];
+
   showDelete:boolean = false;
   showAdd:boolean = false;
   addItemMsg = '';
   deleteItemMsg = '';
   privacyMsg = '';
   dmcaMsg = '';
+  submitLogMsg ='';
 
   constructor(private httpClient:HttpClient) { }
 
@@ -24,15 +27,9 @@ export class AdminComponent implements OnInit {
     this.deleteItemMsg = '';
     this.privacyMsg = '';
     this.dmcaMsg = '';
+    this.submitLogMsg = '';
   }
 
-  toggleDelete(){
-    this.showDelete = !this.showDelete;
-  }
-
-  toggleAdd(){
-    this.showAdd = !this.showAdd;
-  }
 
   // Function handles log submission, and post a new log to the log section
   submitLog(type,content){
@@ -43,6 +40,7 @@ export class AdminComponent implements OnInit {
       console.log(res);
     });
     this.getLogs();
+    this.submitLogMsg = 'log submitted';
   }
 
   // retrieve logs from database
@@ -64,30 +62,25 @@ export class AdminComponent implements OnInit {
     });
   }
 
-  // manager delete an item
-  // not working
-  deleteItem(name){
-    var request = new Request('http://localhost:8081/api/publicitems',{
-      method:'DELETE',
-      body:JSON.stringify({name: name}),
-      headers: new Headers({
-        'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8',
-        'Access-Control-Allow-Origin':'*'
-      })
-    });
-    var here = this;
-    fetch(request).then(function(res){
-      res.json().then(function(data){
 
-      });
-    }).catch(err=>{
-      console.log(err);
-    });
+  searchCollection(name){
+
 
   }
 
-  // manager add a new item
+  // manager delete the public items
+  deleteItem(name){
+    fetch('http://localhost:8081/api/publicitems',{
+      method:'DELETE',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({name:name})
+    });
+    this.deleteItemMsg = 'item deleted';
+  }
+
+  // manager add a new public item
   createItem(name,price,desc){
+    var here = this;
     this.httpClient.post('http://localhost:8081/api/publicitems', {
       name: name,
       price:price,
@@ -105,7 +98,8 @@ export class AdminComponent implements OnInit {
       content:content
     }).subscribe(function(res){
       console.log(res);
-    })
+    });
+    this.privacyMsg = 'privacy policy updated';
   }
 
   // update dmca policy
@@ -114,8 +108,18 @@ export class AdminComponent implements OnInit {
       content:content
     }).subscribe(function(res){
       console.log(res);
-    })
+    });
+    this.dmcaMsg = 'dmca policy updated';
+  }
 
+
+
+  toggleDelete(){
+    this.showDelete = !this.showDelete;
+  }
+
+  toggleAdd(){
+    this.showAdd = !this.showAdd;
   }
 
 }

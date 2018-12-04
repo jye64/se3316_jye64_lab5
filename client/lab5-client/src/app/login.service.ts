@@ -25,7 +25,8 @@ export class LoginService {
     headers.append('authentication', this.cookieService.get('verified'));
 
     this.httpClient.get('/api/login?email='+email+'&password='+password, httpOptions)
-      .subscribe(response=>{
+      .subscribe(res=>{
+
 
       });
 

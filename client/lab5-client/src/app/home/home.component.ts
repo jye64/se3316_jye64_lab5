@@ -29,7 +29,7 @@ export class HomeComponent implements OnInit {
     this.showCreate = !this.showCreate;
   }
 
-  //return user collection from userItems
+  // return user collection from userItems
   getCollection() {
     var request = new Request('http://localhost:8081/api/useritems', {
       method: 'GET',
@@ -48,7 +48,7 @@ export class HomeComponent implements OnInit {
     });
   }
 
-
+  // add item to shopping cart
   addToCart(name, quan) {
     this.httpClient.post('http://localhost:8081/api/addCart', {
       name: name,
@@ -60,11 +60,16 @@ export class HomeComponent implements OnInit {
     this.updateCart();
   }
 
-  // need fixing
+  // clear shopping cart
   clearCart() {
-    this.carts = [];
+    fetch('http://localhost:8081/api/addCart/clear',{
+      method:'DELETE',
+      headers:{'Content-Type':'application/json'}
+    });
+    this.updateCart();
   }
 
+  // update item quantity in cart
   updateQuan(name, quan) {
     this.httpClient.put('http://localhost:8081/api/addCart', {
       name: name,
@@ -75,18 +80,14 @@ export class HomeComponent implements OnInit {
     this.updateCart();
   }
 
-  // not working
+  // delete single item in cart
   deleteItem(name) {
-    var request = new Request('http://localhost:8081/api/addCart', {
-      method: 'DELETE',
-      body: JSON.stringify({name: name}),
-      headers: new Headers({
-        'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8',
-        'Access-Control-Allow-Origin': '*'
-      })
+    fetch('http://localhost:8081/api/addCart',{
+      method:'DELETE',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({name:name})
     });
     this.updateCart();
-
   }
 
   // update cart view
@@ -119,34 +120,25 @@ export class HomeComponent implements OnInit {
 
   // not working
   submitRating(name,rate){
-    this.httpClient.put('http://localhost:8081/api/useritems/rating', {
-      name: name,
-      rating:rate
-    }).subscribe(function (res) {
-      console.log(res);
-    })
+    fetch('http://localhost:8081/api/useritems/rating',{
+      method:'PUT',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({name:name,rating:rate})
+    });
 
   }
 
   // not working
   submitComment(name,comment){
-    this.httpClient.put('http://localhost:8081/api/useritems/comment', {
-      name: name,
-      comment:comment
-    }).subscribe(function (res) {
-      console.log(res);
-    })
+    fetch('http://localhost:8081/api/useritems/comment',{
+      method:'PUT',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({name:name,comment:comment})
+    });
   }
 
   // not working
   createItem(name,desc){
-    this.httpClient.post('http://localhost:8081/api/useritems',{
-      name:name,
-      description:desc,
-      priv:true
-    }).subscribe(function(res){
-      console.log(res);
-    })
 
   }
 

@@ -283,7 +283,7 @@ router.route('/publicitems')
     })
 
     .get(function(req,res){
-        Item.find({priv:false},function(err,items){
+        Item.find(function(err,items){
             if(err){
                 res.send(err);
             }
@@ -296,6 +296,18 @@ router.route('/publicitems')
             }
             res.send(itemToSend);
         });
+    });
+
+
+// return a specific item based on name
+router.route('/publicitems/name')
+    .get(function(req,res){
+        Item.find({name:req.body.name},function(err,item){
+            if(err){
+                res.send(err);
+            }
+            res.send(item);
+        })
     });
 
 // on routes that end in /userItems
@@ -321,23 +333,6 @@ router.route('/useritems')
             res.json({message: 'user item created'});
         })
     })
-
-    // .put(function(req,res){
-    //     UserItem.findOne({name:req.body.name},function(err,userItem){
-    //         if(err){
-    //             res.send(err);
-    //         }
-    //         userItem.comment.push(req.body.comment);
-    //         userItem.rating.push(req.body.rating);
-    //         userItem.save(function(err,item){
-    //             if(err){
-    //                 throw err;
-    //             }
-    //             res.json({message:'user item updated'});
-    //         })
-    //     })
-    //
-    // })
 
     .get(function(req,res){
         UserItem.find(function(err,userItem){
@@ -366,7 +361,8 @@ router.route('/useritems')
         });
     });
 
-// update item comments
+
+// update a specific item's comments based on name
 router.route('/useritems/comment')
     .put(function(req,res){
         UserItem.findOne({name:req.body.name},function(err,userItem){
@@ -383,7 +379,7 @@ router.route('/useritems/comment')
         })
     });
 
-// update item ratings
+// update a specific item's ratings based on name
 router.route('/useritems/rating')
     .put(function(req,res){
         UserItem.findOne({name:req.body.name},function(err,userItem){
@@ -407,6 +403,7 @@ router.route('/addCart')
         var cart = new Cart();
         cart.name = req.body.name;
         cart.quantity = req.body.quantity;
+        cart.rm = true;
 
         cart.save(function(err){
             if(err){
@@ -446,6 +443,19 @@ router.route('/addCart')
                 res.send(err);
             }
             res.json({message:'Cart Successfully deleted'});
+        });
+    });
+
+// clear shopping cart
+router.route('/addCart/clear')
+    .delete(function(req,res){
+        Cart.deleteMany({
+            rm:true
+        },function(err,cart){
+            if(err){
+                res.send(err);
+            }
+            res.json({message:'Cart Successfully cleared'});
         });
     });
 
@@ -490,7 +500,6 @@ router.route('/log')
 
 // on routes that end in /items/:item_id
 // ----------------------------------------------------
-
 router.route('/items/:item_id')
     .get(function(req,res){
         Item.findById(req.params.item_id, function(err,item){
