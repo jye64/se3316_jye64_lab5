@@ -2,7 +2,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule} from "./app-routing.module";
-import { FormsModule } from '@angular/forms';
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
+import { MatDialogModule } from'@angular/material/dialog';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
@@ -13,8 +15,10 @@ import { DmcaComponent } from './dmca/dmca.component';
 import { CollectionComponent } from './collection/collection.component';
 import { HomeComponent } from './home/home.component';
 import { AdminComponent } from './admin/admin.component';
+import { DialogComponent } from './dialog/dialog.component';
 
 import { CookieService } from "ngx-cookie-service";
+
 
 
 
@@ -28,15 +32,20 @@ import { CookieService } from "ngx-cookie-service";
     DmcaComponent,
     CollectionComponent,
     HomeComponent,
-    AdminComponent
+    AdminComponent,
+    DialogComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule,
+    MatDialogModule,
+    BrowserAnimationsModule
   ],
   providers: [CookieService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents:[DialogComponent]
 })
 export class AppModule { }

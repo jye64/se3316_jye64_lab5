@@ -23,6 +23,7 @@ var Cart = require('./models/cart');
 var UserItem = require('./models/userItem');
 var Log = require('./models/log');
 
+var adminCode = 'webtech3316';
 
 //email verification
 var nev = require('./backend_modules/email-verification')(mongoose);

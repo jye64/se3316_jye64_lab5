@@ -53,7 +53,8 @@
     <h5 class="text-center">Quantity: {{cart.quantity}}</h5>
     <hr>
   </div>
-  <button (click)="buy()">Buy</button>
+  <button (click)="openBuyConfirmationDialog()">Buy</button>
+  <button (click)="openClearConfirmationDialog()">Clear Shopping Cart</button>
 </div>
 
 
@@ -82,8 +83,6 @@
   <br>
   <button (click)="deleteItem(delete.value)">Delete</button>
 
-  <br><br>
-  <button (click)="clearCart()">Clear Shopping Cart</button>
 </div>
 
 

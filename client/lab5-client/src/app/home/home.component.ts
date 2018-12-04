@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { MatDialog, MatDialogConfig, MatDialogRef } from '@angular/material';
+import { DialogComponent } from "../dialog/dialog.component";
 
 @Component({
   selector: 'app-home',
@@ -13,7 +15,42 @@ export class HomeComponent implements OnInit {
   show: boolean = false;
   showCreate:boolean = false;
 
-  constructor(private httpClient: HttpClient) {
+  dialogRef:MatDialogRef<DialogComponent>;
+
+  constructor(private httpClient: HttpClient, public dialog:MatDialog) {
+  }
+
+  // dialog for clear cart confirmation
+  openClearConfirmationDialog(){
+    this.dialogRef = this.dialog.open(DialogComponent,{
+      disableClose:false,
+      autoFocus: true,
+    });
+    this.dialogRef.componentInstance.confirmationMsg = "Please confirm your action";
+
+    this.dialogRef.afterClosed().subscribe(result=>{
+      if(result){
+        this.clearCart();
+      }
+      this.dialogRef = null;
+    });
+  }
+
+  // dialog for buy confirmation
+  openBuyConfirmationDialog(){
+    this.dialogRef = this.dialog.open(DialogComponent,{
+      disableClose:false,
+      autoFocus: true,
+    });
+    this.dialogRef.componentInstance.confirmationMsg = "Please confirm your action";
+
+    this.dialogRef.afterClosed().subscribe(result=>{
+      if(result){
+        this.buy();
+      }
+      this.dialogRef = null;
+    });
+
   }
 
   ngOnInit() {
@@ -141,6 +178,8 @@ export class HomeComponent implements OnInit {
   createItem(name,desc){
 
   }
+
+
 
 
 }
