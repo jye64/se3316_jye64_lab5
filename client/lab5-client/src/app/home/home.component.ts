@@ -60,7 +60,7 @@ export class HomeComponent implements OnInit {
     this.updateCart();
   }
 
-  // need fix
+  // need fixing
   clearCart() {
     this.carts = [];
   }
@@ -117,8 +117,9 @@ export class HomeComponent implements OnInit {
   buy() {
   }
 
+  // not working
   submitRating(name,rate){
-    this.httpClient.put('http://localhost:8081/api/useritems', {
+    this.httpClient.put('http://localhost:8081/api/useritems/rating', {
       name: name,
       rating:rate
     }).subscribe(function (res) {
@@ -127,16 +128,17 @@ export class HomeComponent implements OnInit {
 
   }
 
+  // not working
   submitComment(name,comment){
-    this.httpClient.put('http://localhost:8081/api/useritems', {
+    this.httpClient.put('http://localhost:8081/api/useritems/comment', {
       name: name,
       comment:comment
     }).subscribe(function (res) {
       console.log(res);
     })
-
   }
 
+  // not working
   createItem(name,desc){
     this.httpClient.post('http://localhost:8081/api/useritems',{
       name:name,

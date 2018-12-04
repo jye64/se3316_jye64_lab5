@@ -18,14 +18,14 @@
     <h5 *ngIf="show" class="text-center">Stock: {{collection.quantity}}</h5>
 
     <h5 *ngIf="show" class="text-center">Add Comment Here:</h5>
-    <input *ngIf="show" #cName type="text" placeholder="item">
-    <input *ngIf="show" #comment type="text" placeholder="comment here">
-    <button *ngIf="show" (click)="submitComment(cName.value,comment.value)">Save</button>
+    <input *ngIf="show" type="text" #cName placeholder="item">
+    <input *ngIf="show" type="text" #cComment placeholder="comment">
+    <button *ngIf="show" (click)="submitComment(cName.value,cComment.value)">Save</button>
 
     <h5 *ngIf="show" class="text-center">Add Rating Here:</h5>
-    <input *ngIf="show" #cRate type="text" placeholder="item">
-    <input *ngIf="show" #rate type="text" placeholder="rate here" >
-    <button *ngIf="show" (click)="submitRating(cRate.value,rate.value)">Save</button>
+    <input *ngIf="show" type="text" #rName placeholder="item">
+    <input *ngIf="show" type="text" #rating placeholder="rating">
+    <button *ngIf="show" (click)="submitRating(rName.value,rating.value)">Save</button>
 
   </div>
 </div>
@@ -35,14 +35,11 @@
 <button (click)="toggleCreate()">Show</button>
 
 <div *ngIf="showCreate">
-  <label>Name</label>
-  <input #createItem type="text" >
+  <input #createItem type="text" placeholder="item">
 
-  <label>Description</label>
-  <input #createDes type="text" >
+  <input #createDes type="text" placeholder="description">
 
-  <label>Visibility</label>
-  <input #createVis type="text" >
+  <input #createVis type="text" placeholder="visibility" >
 
   <button (click)="createItem(createItem.value,createDes.value)">Create</button>
 </div>

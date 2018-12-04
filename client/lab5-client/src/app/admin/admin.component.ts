@@ -43,7 +43,6 @@ export class AdminComponent implements OnInit {
       console.log(res);
     });
     this.getLogs();
-
   }
 
   // retrieve logs from database
@@ -66,6 +65,7 @@ export class AdminComponent implements OnInit {
   }
 
   // manager delete an item
+  // not working
   deleteItem(name){
     var request = new Request('http://localhost:8081/api/publicitems',{
       method:'DELETE',

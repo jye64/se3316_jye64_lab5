@@ -322,22 +322,22 @@ router.route('/useritems')
         })
     })
 
-    .put(function(req,res){
-        UserItem.findOne({name:req.body.name},function(err,userItem){
-            if(err){
-                res.send(err);
-            }
-            userItem.comment.push(req.body.comment);
-            userItem.rating.push(req.body.rating);
-            userItem.save(function(err,item){
-                if(err){
-                    throw err;
-                }
-                res.json({message:'user item updated'});
-            })
-        })
-
-    })
+    // .put(function(req,res){
+    //     UserItem.findOne({name:req.body.name},function(err,userItem){
+    //         if(err){
+    //             res.send(err);
+    //         }
+    //         userItem.comment.push(req.body.comment);
+    //         userItem.rating.push(req.body.rating);
+    //         userItem.save(function(err,item){
+    //             if(err){
+    //                 throw err;
+    //             }
+    //             res.json({message:'user item updated'});
+    //         })
+    //     })
+    //
+    // })
 
     .get(function(req,res){
         UserItem.find(function(err,userItem){
@@ -366,6 +366,39 @@ router.route('/useritems')
         });
     });
 
+// update item comments
+router.route('/useritems/comment')
+    .put(function(req,res){
+        UserItem.findOne({name:req.body.name},function(err,userItem){
+            if(err){
+                res.send(err);
+            }
+            userItem.comment.push(req.body.comment);
+            userItem.save(function(err,item){
+                if(err){
+                    throw err;
+                }
+                res.json({message:'user item updated'});
+            })
+        })
+    });
+
+// update item ratings
+router.route('/useritems/rating')
+    .put(function(req,res){
+        UserItem.findOne({name:req.body.name},function(err,userItem){
+            if(err){
+                res.send(err);
+            }
+            userItem.rating.push(req.body.rating);
+            userItem.save(function(err,item){
+                if(err){
+                    throw err;
+                }
+                res.json({message:'user item updated'});
+            })
+        })
+    });
 
 // on routes that end in /addCart
 // ----------------------------------------------------
