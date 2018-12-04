@@ -8,9 +8,10 @@ import { HttpClient } from '@angular/common/http';
 })
 export class HomeComponent implements OnInit {
 
-  collections;
-  carts;
+  collections= [];
+  carts = [];
   show: boolean = false;
+  showCreate:boolean = false;
 
   constructor(private httpClient: HttpClient) {
   }
@@ -22,6 +23,10 @@ export class HomeComponent implements OnInit {
 
   showInfo() {
     this.show = !this.show;
+  }
+
+  toggleCreate(){
+    this.showCreate = !this.showCreate;
   }
 
   //return user collection from userItems
@@ -70,7 +75,7 @@ export class HomeComponent implements OnInit {
     this.updateCart();
   }
 
-  //not working
+  // not working
   deleteItem(name) {
     var request = new Request('http://localhost:8081/api/addCart', {
       method: 'DELETE',
@@ -81,6 +86,7 @@ export class HomeComponent implements OnInit {
       })
     });
     this.updateCart();
+
   }
 
   // update cart view
@@ -126,6 +132,17 @@ export class HomeComponent implements OnInit {
       name: name,
       comment:comment
     }).subscribe(function (res) {
+      console.log(res);
+    })
+
+  }
+
+  createItem(name,desc){
+    this.httpClient.post('http://localhost:8081/api/useritems',{
+      name:name,
+      description:desc,
+      priv:true
+    }).subscribe(function(res){
       console.log(res);
     })
 

@@ -9,14 +9,28 @@ import { HttpClient } from '@angular/common/http';
 export class AdminComponent implements OnInit {
 
   logs = [];
+  showDelete:boolean = false;
+  showAdd:boolean = false;
+  addItemMsg = '';
+  deleteItemMsg = '';
 
   constructor(private httpClient:HttpClient) { }
 
   ngOnInit() {
-    this.getLogs();
+    this.getLogs()
+    this.addItemMsg = '';
+    this.deleteItemMsg = '';
   }
 
-  // Functions take handles log submission, and post a new log to the log section
+  toggleDelete(){
+    this.showDelete = !this.showDelete;
+  }
+
+  toggleAdd(){
+    this.showAdd = !this.showAdd;
+  }
+
+  // Function handles log submission, and post a new log to the log section
   submitLog(type,content){
     this.httpClient.post('http://localhost:8081/api/log', {
       type:type,
@@ -46,5 +60,39 @@ export class AdminComponent implements OnInit {
       console.log(err);
     });
   }
+
+  // manager delete an item
+  deleteItem(name){
+    var request = new Request('http://localhost:8081/api/publicitems',{
+      method:'DELETE',
+      body:JSON.stringify({name: name}),
+      headers: new Headers({
+        'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8',
+        'Access-Control-Allow-Origin':'*'
+      })
+    });
+    var here = this;
+    fetch(request).then(function(res){
+      res.json().then(function(data){
+
+      });
+    }).catch(err=>{
+      console.log(err);
+    });
+
+  }
+
+  // manager add a new item
+  createItem(name,price,desc){
+    this.httpClient.post('http://localhost:8081/api/publicitems', {
+      name: name,
+      price:price,
+      description:desc
+    }).subscribe(function (res) {
+      console.log(res);
+    });
+    this.addItemMsg = 'item saved.';
+  }
+
 
 }

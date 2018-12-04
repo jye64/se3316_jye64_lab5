@@ -9,24 +9,22 @@ import { DMCA} from "./DMCA";
 })
 export class DmcaComponent implements OnInit {
 
-  policy;
+  policy={name:"DMCA",content:""};
 
   constructor() {
-    //load the DMCA policy when the component is rendered
-    var request = new Request('/dmca',{
-      method:'GET'
+    //load privacy policy when the component is rendered
+    var request = new Request('http://localhost:8081/api/dmca',{
+      method: 'GET'
     });
-
     var here = this;
-    fetch(request).then(function(res){
-      res.json().then(function(data){
+    fetch(request).then( function(resp){
+      resp.json().then(function(data) {
         console.log(data);
-        here.policy = data.content;
+        here.policy.content = data.content;
       });
-    }).catch(err=>{
+    }).catch(err =>{
       console.log(err);
     });
-
 
   }
 

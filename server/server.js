@@ -247,6 +247,7 @@ router.get('/login?:query', function (req, res){
 
 
 // on routes that end in /publicitems
+// items shown on the landing page
 // ----------------------------------------------------
 router.route('/publicitems')
     .post(function(req,res){
@@ -266,8 +267,19 @@ router.route('/publicitems')
             if(err){
                 res.send(err);
             }
-            res.json({message: 'item created'});
+            res.json({message: 'public item created'});
         })
+    })
+
+    .delete(function(req,res){
+        Item.deleteMany({
+            name:req.body.name
+        },function(err,item){
+            if(err){
+                res.send(err);
+            }
+            res.json({message:'public item Successfully deleted'});
+        });
     })
 
     .get(function(req,res){
@@ -283,9 +295,7 @@ router.route('/publicitems')
                 itemToSend.push(items[i]);
             }
             res.send(itemToSend);
-
         });
-
     });
 
 // on routes that end in /userItems
@@ -308,7 +318,7 @@ router.route('/useritems')
             if(err){
                 res.send(err);
             }
-            res.json({message: 'item created'});
+            res.json({message: 'user item created'});
         })
     })
 
@@ -323,7 +333,7 @@ router.route('/useritems')
                 if(err){
                     throw err;
                 }
-                res.json({message:'updated'});
+                res.json({message:'user item updated'});
             })
         })
 
@@ -342,6 +352,17 @@ router.route('/useritems')
                 userItemToSend.push(userItem[i]);
             }
             res.send(userItemToSend);
+        });
+    })
+
+    .delete(function(req,res){
+        UserItem.deleteMany({
+            name:req.body.name
+        },function(err,cart){
+            if(err){
+                res.send(err);
+            }
+            res.json({message:'user item Successfully deleted'});
         });
     });
 
@@ -369,7 +390,7 @@ router.route('/addCart')
                     quantity:req.body.quantity}},
             function (err, newCart) {
                 if (err) return handleError(err);
-                res.json({message:"Saved"});
+                res.json({message:"cart saved"});
             });
 
     })
@@ -379,7 +400,7 @@ router.route('/addCart')
             if(err){
                 res.send(err);
             }
-            res.json(cart);
+            res.send(cart);
         });
     })
 
@@ -391,7 +412,7 @@ router.route('/addCart')
             if(err){
                 res.send(err);
             }
-            res.json({message:'Successfully deleted'});
+            res.json({message:'Cart Successfully deleted'});
         });
     });
 
@@ -415,7 +436,7 @@ router.route('/log')
             if(err){
                 res.send(err);
             }
-            res.json({message:'successfully deleted'});
+            res.json({message:'log successfully deleted'});
         });
     })
 
@@ -507,7 +528,7 @@ router.route('/privacy')
 
 
     .put(function(req, res) {
-        Policy.update({name: "privacy"}, {$set: {content: req.body.content}}, function (err) {
+        Policy.updateOne({name: "privacy"}, {$set: {content: req.body.content}}, function (err) {
             if (err){
                 res.send(err);
             }
@@ -538,7 +559,7 @@ router.route('/dmca')
 
     //Issue: cannot update content
     .put(function(req, res) {
-        Policy.update({name: "DMCA" }, { $set: { content: req.body.content }}, function (err) {
+        Policy.updateOne({name: "DMCA" }, { $set: { content: req.body.content }}, function (err) {
             if(err){
                 res.send(err);
             }

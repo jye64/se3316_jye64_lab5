@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CollectionComponent implements OnInit {
 
-  collections;
+  collections = [];
   show:boolean = false;
 
   constructor() { }

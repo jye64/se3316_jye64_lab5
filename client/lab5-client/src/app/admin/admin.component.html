@@ -33,6 +33,28 @@
 </ul>
 
 <hr>
+<button (click)="toggleDelete()">Delete Item</button>
+<br>
+<div *ngIf="showDelete">
+  <input type="text" #delete placeholder="item">
+  <button (click)="deleteItem(delete.value)">Delete</button>
+  {{deleteItemMsg}}
+</div>
+
+
+
+<hr>
+<button (click)="toggleAdd()">Add Item</button>
+<br>
+<div *ngIf="showAdd">
+  <input type="text" #add placeholder="item name">
+  <input type="text" #price placeholder="price">
+  <input type="text" #desc placeholder="description">
+  <button (click)="createItem(add.value,price.value,desc.value)">Create</button>
+  {{addItemMsg}}
+</div>
+
+<hr>
 <h3>Search Collections</h3>
 <input type="text" #searchInput placeholder="Search">
 <button (click)="searchCollection()">Search</button>
