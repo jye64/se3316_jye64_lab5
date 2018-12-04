@@ -71,12 +71,14 @@
 <h3>Edit Privacy and Security</h3>
 <label>Content:</label>
 <textarea #privacy></textarea>
-<button (click)="savePrivacy()">Save</button>
+<button (click)="savePrivacy(privacy.value)">Save</button>
+{{privacyMsg}}
 
 
 <hr>
 <h3>Edit DMCA</h3>
 <label>Contents:</label>
 <textarea #dmca></textarea>
-<button (click)="saveDMCA()">Save</button>
+<button (click)="saveDMCA(dmca.value)">Save</button>
+{{dmcaMsg}}
 

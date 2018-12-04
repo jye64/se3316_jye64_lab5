@@ -508,24 +508,14 @@ router.route('/items/:item_id')
 // ----------------------------------------------------
 router.route('/privacy')
     .get(function(req,res){
-        Policy.findOne({name:"privacy"},function(err,returnedPolicy){
-            if(returnedPolicy==null){
-                var policy = new Policy();
-                policy.name="privacy";
-                policy.content = 'privacy policy as follows:';
-                policy.save(function(err){
-                    if(err){
-                        res.send(err);
-                    }
-                    res.json({content:policy.content});
-                })
+        Policy.findOne({name:'privacy'}, function(err,policy){
+            if(err){
+                res.send(err);
             }
-            else{
-                res.json(returnedPolicy);
-            }
+            res.json(policy);
         });
-    })
 
+    })
 
     .put(function(req, res) {
         Policy.updateOne({name: "privacy"}, {$set: {content: req.body.content}}, function (err) {
@@ -542,18 +532,11 @@ router.route('/privacy')
 // ----------------------------------------------------
 router.route('/dmca')
     .get(function(req,res){
-        Policy.findOne({name:"DMCA"},function(err,returnedPolicy){
-            if(returnedPolicy==null){
-                var policy = new Policy();
-                policy.name="DMCA";
-                policy.content = "DMCA policy as follows";
-                policy.save(function(err){
-                    if(err) throw err;
-                    res.json({content:policy.content});
-                });
-            }else{
-                res.json(returnedPolicy);
+        Policy.findOne({name:'DMCA'}, function(err,policy){
+            if(err){
+                res.send(err);
             }
+            res.json(policy);
         });
     })
 

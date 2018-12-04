@@ -13,6 +13,8 @@ export class AdminComponent implements OnInit {
   showAdd:boolean = false;
   addItemMsg = '';
   deleteItemMsg = '';
+  privacyMsg = '';
+  dmcaMsg = '';
 
   constructor(private httpClient:HttpClient) { }
 
@@ -20,6 +22,8 @@ export class AdminComponent implements OnInit {
     this.getLogs()
     this.addItemMsg = '';
     this.deleteItemMsg = '';
+    this.privacyMsg = '';
+    this.dmcaMsg = '';
   }
 
   toggleDelete(){
@@ -94,5 +98,24 @@ export class AdminComponent implements OnInit {
     this.addItemMsg = 'item saved.';
   }
 
+
+  // update privacy policy
+  savePrivacy(content){
+    this.httpClient.put('http://localhost:8081/api/privacy',{
+      content:content
+    }).subscribe(function(res){
+      console.log(res);
+    })
+  }
+
+  // update dmca policy
+  saveDMCA(content){
+    this.httpClient.put('http://localhost:8081/api/dmca',{
+      content:content
+    }).subscribe(function(res){
+      console.log(res);
+    })
+
+  }
 
 }
