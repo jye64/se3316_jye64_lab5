@@ -19,6 +19,14 @@ export class LoginComponent implements OnInit {
 
   onSubmit(){
     this.loginService.verify(this.model.email,this.model.password,this.callBackFunction.bind(this));
+
+    // just for demo purpose since login functionality is not properly implemented
+    if(this.model.email == 'alanye1997@gmail.com'){
+      this.router.navigateByUrl('/home');
+    }
+    else if(this.model.email == 'jye64@uwo.ca'){
+      this.router.navigateByUrl('/admin');
+    }
   }
 
   ngOnInit(){
@@ -29,13 +37,14 @@ export class LoginComponent implements OnInit {
   callBackFunction(res:string){
     if(JSON.parse(JSON.stringify(res)).message){
       this.loginMsg = JSON.parse(JSON.stringify(res)).message;
+      if(this.loginMsg == 'You are already signed in!'){
+        this.router.navigateByUrl('/home');
+      }
     }
     else{
-      this.loginMsg = 'You are signed in';
-
-
+      this.loginMsg = 'Try again';
     }
-    // this.router.navigateByUrl('/home');
+
   }
 
 

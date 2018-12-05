@@ -18,9 +18,22 @@ export class LoginService {
 
   constructor(private httpClient:HttpClient, private cookieService:CookieService) { }
 
-  verify(email,password, callbackFunction){
-
-
-
+  verify(email,password, callBackFunction){
+    var request = new Request('http://localhost:8081/api/login?email='+email+'&password='+password,{
+      method:'GET',
+      headers: new Headers({
+        type:'authentication',
+        'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8',
+        'Access-Control-Allow-Origin':'*'
+      })
+    });
+    var here = this;
+    fetch(request).then(function(res){
+      res.json().then(function(data){
+        callBackFunction(data);
+      });
+    }).catch(err=>{
+      console.log(err);
+    });
   }
 }

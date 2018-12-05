@@ -24,7 +24,7 @@ var UserItem = require('./models/userItem');
 var Log = require('./models/log');
 var Collection = require('./models/collection');
 
-
+// admin login code
 var adminCode = 'webtech3316';
 
 //email verification
@@ -228,6 +228,7 @@ router.get('/email-verification/:URL', function(req, res) {
 
 //check login credentials
 router.get('/login?:query', function (req, res){
+    console.log('login credential checking');
     if(req.header('authentication') === 'false') {
         User.find({"email": validator.escape(req.query.email)}, function (err, userList) {
             if (err)
@@ -245,7 +246,6 @@ router.get('/login?:query', function (req, res){
         res.send({message: 'You are already signed in!'});
     }
 });
-
 
 
 
@@ -402,19 +402,6 @@ router.route('/useritems/rating')
 
 router.route('/useritems/stock')
     .put(function(req,res){
-        // UserItem.findOne({name:req.body.name},function(err,userItem){
-        //     if(err){
-        //         res.send(err);
-        //     }
-        //     $inc:{quantity:req.body.quantity};
-        //     userItem.save(function(err,item){
-        //         if(err){
-        //             res.send(err);
-        //         }
-        //         res.json({message:'user item stock updated'});
-        //     })
-        //
-        // })
         UserItem.updateOne({ name:req.body.name },
             { $inc: {
                     quantity:req.body.quantity}},
@@ -567,6 +554,16 @@ router.route('/collections')
 
     });
 
+// user rename their own collection
+router.route('/collections/rename')
+    .put(function(req,res){
+        Collection.updateOne({name:req.body.name}, {$set: {name: req.body.newName}}, function (err) {
+            if (err){
+                res.send(err);
+            }
+            res.json({message: "collection name updated"});
+        });
+    })
 
 
 // on routes that end in /items/:item_id

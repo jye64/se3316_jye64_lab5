@@ -8,7 +8,8 @@ var CollectionSchema = new Schema({
     item:[{type:String}],
     name:String,
     description:String,
-    rating:Number
+    rating:Number,
+    newName:String
 });
 
 module.exports = mongoose.model('Collection',CollectionSchema);
