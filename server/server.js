@@ -22,6 +22,8 @@ var Policy = require('./models/policy');
 var Cart = require('./models/cart');
 var UserItem = require('./models/userItem');
 var Log = require('./models/log');
+var Collection = require('./models/collection');
+
 
 var adminCode = 'webtech3316';
 
@@ -397,6 +399,33 @@ router.route('/useritems/rating')
         })
     });
 
+
+router.route('/useritems/stock')
+    .put(function(req,res){
+        // UserItem.findOne({name:req.body.name},function(err,userItem){
+        //     if(err){
+        //         res.send(err);
+        //     }
+        //     $inc:{quantity:req.body.quantity};
+        //     userItem.save(function(err,item){
+        //         if(err){
+        //             res.send(err);
+        //         }
+        //         res.json({message:'user item stock updated'});
+        //     })
+        //
+        // })
+        UserItem.updateOne({ name:req.body.name },
+            { $inc: {
+                    quantity:req.body.quantity}},
+            function (err, newItem) {
+                if (err) return handleError(err);
+                res.json({message:"stock level updated"});
+            });
+
+        });
+
+
 // on routes that end in /addCart
 // ----------------------------------------------------
 router.route('/addCart')
@@ -496,6 +525,47 @@ router.route('/log')
         });
     });
 
+
+// on routes that end in /collections
+// user create their own collection
+// ----------------------------------------------------
+router.route('/collections')
+    .get(function(req,res){
+        Collection.find(function(err,collection){
+            if(err){
+                res.send(err);
+            }
+            res.json(collection);
+        });
+    })
+
+    .post(function(req,res){
+        var collection = new Collection();
+        collection.name = req.body.name;
+        collection.privacy = req.body.privacy;
+        collection.description = req.body.description;
+        collection.rating = req.body.rating;
+        collection.owner = req.body.owner;
+
+        collection.save(function(err){
+            if(err){
+                res.send(err);
+            }
+            res.json({message:'collection created.'});
+        })
+    })
+
+    .delete(function(req,res){
+        Collection.deleteOne({
+            name:req.body.name
+        },function(err,col){
+            if(err){
+                res.send(err);
+            }
+            res.json({message:'collection successfully deleted'});
+        });
+
+    });
 
 
 

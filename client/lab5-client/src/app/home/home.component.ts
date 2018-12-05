@@ -20,51 +20,12 @@ export class HomeComponent implements OnInit {
   constructor(private httpClient: HttpClient, public dialog:MatDialog) {
   }
 
-  // dialog for clear cart confirmation
-  openClearConfirmationDialog(){
-    this.dialogRef = this.dialog.open(DialogComponent,{
-      disableClose:false,
-      autoFocus: true,
-    });
-    this.dialogRef.componentInstance.confirmationMsg = "Please confirm your action";
-
-    this.dialogRef.afterClosed().subscribe(result=>{
-      if(result){
-        this.clearCart();
-      }
-      this.dialogRef = null;
-    });
-  }
-
-  // dialog for buy confirmation
-  openBuyConfirmationDialog(){
-    this.dialogRef = this.dialog.open(DialogComponent,{
-      disableClose:false,
-      autoFocus: true,
-    });
-    this.dialogRef.componentInstance.confirmationMsg = "Please confirm your action";
-
-    this.dialogRef.afterClosed().subscribe(result=>{
-      if(result){
-        this.buy();
-      }
-      this.dialogRef = null;
-    });
-
-  }
 
   ngOnInit() {
     this.getCollection();
     this.updateCart();
   }
 
-  showInfo() {
-    this.show = !this.show;
-  }
-
-  toggleCreate(){
-    this.showCreate = !this.showCreate;
-  }
 
   // return user collection from userItems
   getCollection() {
@@ -93,7 +54,7 @@ export class HomeComponent implements OnInit {
     }).subscribe(function (res) {
       console.log(res);
     })
-    //this.ensureStock(name, quan);
+    this.ensureAddStock(name, quan);
     this.updateCart();
   }
 
@@ -113,7 +74,7 @@ export class HomeComponent implements OnInit {
       quantity: quan,
     }).subscribe(function (res) {
       console.log(res);
-    })
+    });
     this.updateCart();
   }
 
@@ -147,9 +108,26 @@ export class HomeComponent implements OnInit {
   }
 
 
-  // track stock level, update quantity in userItems
-  ensureStock(name, quan) {
+  // update stock when add item to cart
+  ensureAddStock(name, quan) {
+    this.httpClient.put('http://localhost:8081/api/useritems/stock', {
+      name: name,
+      quantity: -quan,
+    }).subscribe(function (res) {
+      console.log(res);
+    });
+    this.getCollection();
+  }
 
+  // update stock when remove item from cart
+  ensureRemoveStock(name, quan) {
+    this.httpClient.put('http://localhost:8081/api/useritems/stock', {
+      name: name,
+      quantity: quan,
+    }).subscribe(function (res) {
+      console.log(res);
+    });
+    this.getCollection();
   }
 
   buy() {
@@ -174,12 +152,46 @@ export class HomeComponent implements OnInit {
     });
   }
 
-  // not working
-  createItem(name,desc){
-
+  showInfo() {
+    this.show = !this.show;
   }
 
+  toggleCreate(){
+    this.showCreate = !this.showCreate;
+  }
 
+  // dialog for clear cart confirmation
+  openClearConfirmationDialog(){
+    this.dialogRef = this.dialog.open(DialogComponent,{
+      disableClose:false,
+      autoFocus: true,
+    });
+    this.dialogRef.componentInstance.confirmationMsg = "Please confirm your action";
+
+    this.dialogRef.afterClosed().subscribe(result=>{
+      if(result){
+        this.clearCart();
+      }
+      this.dialogRef = null;
+    });
+  }
+
+  // dialog for buy confirmation
+  openBuyConfirmationDialog(){
+    this.dialogRef = this.dialog.open(DialogComponent,{
+      disableClose:false,
+      autoFocus: true,
+    });
+    this.dialogRef.componentInstance.confirmationMsg = "Please confirm your action";
+
+    this.dialogRef.afterClosed().subscribe(result=>{
+      if(result){
+        this.buy();
+      }
+      this.dialogRef = null;
+    });
+
+  }
 
 
 }

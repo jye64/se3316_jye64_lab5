@@ -18,6 +18,7 @@ import { AdminComponent } from './admin/admin.component';
 import { DialogComponent } from './dialog/dialog.component';
 
 import { CookieService } from "ngx-cookie-service";
+import { NewCollectionComponent } from './new-collection/new-collection.component';
 
 
 
@@ -33,7 +34,8 @@ import { CookieService } from "ngx-cookie-service";
     CollectionComponent,
     HomeComponent,
     AdminComponent,
-    DialogComponent
+    DialogComponent,
+    NewCollectionComponent
   ],
   imports: [
     BrowserModule,

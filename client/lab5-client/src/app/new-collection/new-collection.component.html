@@ -1,0 +1,26 @@
+
+
+
+<div class="row" style="margin-bottom:10px;">
+  <div class="text-center col-lg-4 col-md-12 col-sm-12 col-xs-12" *ngFor="let collection of collections" style="margin-bottom:5px;">
+    <button (click)="showInfo()" class=" btn btn-default col-12" style="margin-bottom:5px; width:100%;"><b>{{collection.name}}</b></button>
+    <!--<h5 class="text-center">Rating: {{collection.rating}}</h5>-->
+    <h5 *ngIf="show" class="text-center">Description: {{collection.description}}</h5>
+    <h5 *ngIf="show" class="text-center">Comments: {{collection.comment}}</h5>
+  </div>
+</div>
+
+<form (ngSubmit)="add()">
+  <div class="form-group">
+    <label>Name</label>
+    <input #name type="text" name="name" [(ngModel)]="model.name" required class="form-control" placeholder="name">
+  </div>
+  <div class="form-group">
+    <label>Description</label>
+    <input #desc type="text" name="description" [(ngModel)]="model.description" required class="form-control" placeholder="description">
+  </div>
+  <div class="checkbox">
+    <label>Public: <input #privacy name="privacy" [(ngModel)]="model.privacy" type="checkbox"></label>
+  </div>
+  <button type="submit" class="btn btn-success">Submit</button>
+</form>

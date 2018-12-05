@@ -33,16 +33,8 @@
 <hr>
 <h2>Create New Collections</h2>
 <button (click)="toggleCreate()">Show</button>
+<app-new-collection *ngIf="showCreate"></app-new-collection>
 
-<div *ngIf="showCreate">
-  <input #createItem type="text" placeholder="item">
-
-  <input #createDes type="text" placeholder="description">
-
-  <input #createVis type="text" placeholder="visibility" >
-
-  <button (click)="createItem(createItem.value,createDes.value)">Create</button>
-</div>
 
 <hr>
 <h2>Shopping Cart</h2>
