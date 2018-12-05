@@ -12,15 +12,17 @@ import { Router } from '@angular/router';
 export class SignupComponent implements OnInit {
 
   signUpMsg = '';
+  model: any = {};
+
+  onSubmit(){
+    this.signUpService.signUp(this.model.email,this.model.password,this.callBackFunction.bind(this));
+  }
 
   constructor(private signUpService:SignupService, private cookieService:CookieService, private route:Router) { }
 
   ngOnInit() {
   }
 
-  createUser(email,pass){
-    this.signUpService.signUp(email, pass, this.callBackFunction.bind(this));
-  }
 
   callBackFunction(res:string){
     console.log(JSON.parse(JSON.stringify(res))._body);
@@ -29,8 +31,8 @@ export class SignupComponent implements OnInit {
     }
   }
 
-  resend(email,pass){
-    this.signUpService.resend(email,pass,this.callBackFunction.bind(this));
+  resend(){
+    this.signUpService.resend(this.model.email,this.model.password,this.callBackFunction.bind(this));
   }
 
 

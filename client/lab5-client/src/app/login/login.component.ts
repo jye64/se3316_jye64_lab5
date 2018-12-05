@@ -12,8 +12,13 @@ import { Router } from '@angular/router';
 export class LoginComponent implements OnInit {
 
   loginMsg:String;
+  model: any = {};
 
   constructor(private loginService:LoginService, private router:Router) { }
+
+  onSubmit(){
+
+  }
 
   ngOnInit(){
     this.loginMsg = '' ;
