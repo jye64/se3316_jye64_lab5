@@ -1,3 +1,6 @@
+
+// This component is the template of confirmation dialog
+
 import { Component, OnInit, Inject, } from '@angular/core';
 import { MatDialogRef, MatDialog} from "@angular/material";
 
@@ -10,7 +13,6 @@ import { MatDialogRef, MatDialog} from "@angular/material";
 
 
 export class DialogComponent implements OnInit {
-
 
   public confirmationMsg: string;
 

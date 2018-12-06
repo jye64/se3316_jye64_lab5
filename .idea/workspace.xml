@@ -2,13 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0f0a7236-ae96-45cd-a2f9-3277b5eabaad" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/lab5-client/src/app/admin/admin.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/client/lab5-client/src/app/admin/admin.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/lab5-client/src/app/admin/admin.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/lab5-client/src/app/admin/admin.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/lab5-client/src/app/collection/collection.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/client/lab5-client/src/app/collection/collection.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/lab5-client/src/app/collection/collection.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/lab5-client/src/app/collection/collection.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/lab5-client/src/app/dialog/dialog.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/lab5-client/src/app/dialog/dialog.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/lab5-client/src/app/home/home.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/client/lab5-client/src/app/home/home.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/lab5-client/src/app/login.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/lab5-client/src/app/login.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/lab5-client/src/app/login/login.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/lab5-client/src/app/login/login.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/lab5-client/src/app/new-collection/new-collection.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/client/lab5-client/src/app/new-collection/new-collection.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/lab5-client/src/app/home/home.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/lab5-client/src/app/home/home.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/lab5-client/src/app/landing/landing.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/client/lab5-client/src/app/landing/landing.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/lab5-client/src/app/landing/landing.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/lab5-client/src/app/landing/landing.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/lab5-client/src/app/new-collection/new-collection.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/lab5-client/src/app/new-collection/new-collection.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/models/collection.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/models/collection.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/lab5-client/src/app/privacy/privacy.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/client/lab5-client/src/app/privacy/privacy.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/server.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -23,15 +27,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="server.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/server/server.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="193">
-              <caret line="561" column="30" lean-forward="true" selection-start-line="561" selection-start-column="30" selection-end-line="561" selection-end-column="30" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="login.component.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client/lab5-client/src/app/login/login.component.html">
           <provider selected="true" editor-type-id="text-editor">
@@ -46,23 +41,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="home.component.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/lab5-client/src/app/home/home.component.ts">
+      <file leaf-file-name="server.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/server/server.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="333">
-              <caret line="191" column="7" lean-forward="true" selection-start-line="180" selection-start-column="4" selection-end-line="191" selection-end-column="7" />
-              <folding>
-                <element signature="e#0#50#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="collection.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/server/models/collection.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="10" column="7" lean-forward="true" selection-start-line="10" selection-start-column="7" selection-end-line="10" selection-end-column="7" />
+            <state relative-caret-position="412">
+              <caret line="662" lean-forward="true" selection-start-line="662" selection-end-line="662" />
             </state>
           </provider>
         </entry>
@@ -70,23 +53,10 @@
       <file leaf-file-name="login.component.ts" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client/lab5-client/src/app/login/login.component.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="33" column="3" lean-forward="true" selection-start-line="33" selection-start-column="3" selection-end-line="33" selection-end-column="3" />
+            <state relative-caret-position="234">
+              <caret line="31" column="13" lean-forward="true" selection-start-line="31" selection-start-column="13" selection-end-line="31" selection-end-column="13" />
               <folding>
                 <element signature="e#0#50#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="home.component.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/lab5-client/src/app/home/home.component.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="345">
-              <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
-              <folding>
-                <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#button#0;n#div#0;n#div#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -95,8 +65,8 @@
       <file leaf-file-name="new-collection.component.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client/lab5-client/src/app/new-collection/new-collection.component.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="359">
-              <caret line="51" lean-forward="true" selection-start-line="51" selection-end-line="51" />
+            <state relative-caret-position="193">
+              <caret line="15" column="21" selection-start-line="15" selection-start-column="18" selection-end-line="15" selection-end-column="21" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#div#0;n#!!top" expanded="true" />
@@ -106,23 +76,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="collection.component.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/lab5-client/src/app/collection/collection.component.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
-              <folding>
-                <element signature="n#style#0;n#button#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="new-collection.component.ts" pinned="false" current-in-tab="true">
+      <file leaf-file-name="new-collection.component.ts" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client/lab5-client/src/app/new-collection/new-collection.component.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="149">
-              <caret line="80" lean-forward="true" selection-start-line="80" selection-end-line="80" />
+            <state relative-caret-position="1305">
+              <caret line="87" column="28" lean-forward="true" selection-start-line="87" selection-start-column="28" selection-end-line="87" selection-end-column="28" />
               <folding>
                 <element signature="e#0#50#0" expanded="true" />
               </folding>
@@ -130,12 +88,58 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="app.component.spec.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/lab5-client/src/app/app.component.spec.ts">
+      <file leaf-file-name="privacy.component.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/client/lab5-client/src/app/privacy/privacy.component.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
+            <state relative-caret-position="90">
+              <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="privacy.component.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/client/lab5-client/src/app/privacy/privacy.component.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="360">
+              <caret line="24" column="9" lean-forward="true" selection-start-line="24" selection-start-column="9" selection-end-line="24" selection-end-column="9" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="signup.component.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/client/lab5-client/src/app/signup/signup.component.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="150">
+              <caret line="10" column="10" selection-start-line="10" selection-start-column="4" selection-end-line="10" selection-end-column="10" />
               <folding>
-                <element signature="e#0#55#0" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#form#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#form#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#form#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#1;n#div#0;n#div#1;n#form#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="signup.component.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/client/lab5-client/src/app/signup/signup.component.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="412">
+              <caret line="33" column="11" lean-forward="true" selection-start-line="33" selection-start-column="11" selection-end-line="33" selection-end-column="11" />
+              <folding>
+                <element signature="e#0#50#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="app.module.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/client/lab5-client/src/app/app.module.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="243">
+              <caret line="29" column="20" lean-forward="true" selection-start-line="29" selection-start-column="20" selection-end-line="29" selection-end-column="20" />
+              <folding>
+                <element signature="e#0#58#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -153,8 +157,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>userite</find>
-      <find>public</find>
       <find>create</find>
       <find>remove</find>
       <find>addC</find>
@@ -181,8 +183,10 @@
       <find>collection</find>
       <find>clear</find>
       <find>delete</find>
-      <find>collections</find>
       <find>updateOne</find>
+      <find>save</find>
+      <find>collections</find>
+      <find>add</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -194,7 +198,6 @@
         <option value="$PROJECT_DIR$/server/models/tempUserModel.js" />
         <option value="$PROJECT_DIR$/server/models/userModel.js" />
         <option value="$PROJECT_DIR$/server/models/policy.js" />
-        <option value="$PROJECT_DIR$/client/lab5-client/src/app/landing/landing.component.ts" />
         <option value="$PROJECT_DIR$/client/lab5-client/src/app/app.component.html" />
         <option value="$PROJECT_DIR$/client/lab5-client/src/app/privacy/privacy.js" />
         <option value="$PROJECT_DIR$/client/lab5-client/src/app/privacy/privacy.ts" />
@@ -208,33 +211,34 @@
         <option value="$PROJECT_DIR$/client/lab5-client/src/app/home/home.service.ts" />
         <option value="$PROJECT_DIR$/client/lab5-client/src/app/home/Collection.ts" />
         <option value="$PROJECT_DIR$/client/lab5-client/src/app/signup.service.ts" />
-        <option value="$PROJECT_DIR$/client/lab5-client/src/app/collection/collection.component.html" />
         <option value="$PROJECT_DIR$/server/models/log.js" />
-        <option value="$PROJECT_DIR$/client/lab5-client/src/app/collection/collection.component.ts" />
-        <option value="$PROJECT_DIR$/client/lab5-client/src/app/privacy/privacy.component.html" />
         <option value="$PROJECT_DIR$/client/lab5-client/src/app/privacy/privacy.component.ts" />
         <option value="$PROJECT_DIR$/client/lab5-client/src/app/dmca/dmca.component.html" />
         <option value="$PROJECT_DIR$/client/lab5-client/src/app/dmca/dmca.component.ts" />
         <option value="$PROJECT_DIR$/server/models/userItem.js" />
         <option value="$PROJECT_DIR$/server/models/item.js" />
-        <option value="$PROJECT_DIR$/client/lab5-client/src/app/admin/admin.component.html" />
         <option value="$PROJECT_DIR$/server/models/cart.js" />
-        <option value="$PROJECT_DIR$/client/lab5-client/src/app/dialog/dialog.component.ts" />
-        <option value="$PROJECT_DIR$/client/lab5-client/src/app/dialog/dialog.component.html" />
         <option value="$PROJECT_DIR$/client/lab5-client/src/app/app.module.ts" />
         <option value="$PROJECT_DIR$/client/lab5-client/src/app/signup/signup.component.ts" />
         <option value="$PROJECT_DIR$/client/lab5-client/src/app/login/login.component.html" />
         <option value="$PROJECT_DIR$/client/lab5-client/src/app/signup/signup.component.html" />
-        <option value="$PROJECT_DIR$/client/lab5-client/src/app/admin/admin.component.ts" />
-        <option value="$PROJECT_DIR$/client/lab5-client/src/app/landing/landing.component.html" />
-        <option value="$PROJECT_DIR$/client/lab5-client/src/app/home/home.component.ts" />
         <option value="$PROJECT_DIR$/client/lab5-client/src/app/login.service.ts" />
         <option value="$PROJECT_DIR$/client/lab5-client/src/app/login/login.component.ts" />
         <option value="$PROJECT_DIR$/server/models/collection.js" />
-        <option value="$PROJECT_DIR$/server/server.js" />
-        <option value="$PROJECT_DIR$/client/lab5-client/src/app/home/home.component.html" />
         <option value="$PROJECT_DIR$/client/lab5-client/src/app/new-collection/new-collection.component.html" />
+        <option value="$PROJECT_DIR$/client/lab5-client/src/app/landing/landing.component.html" />
+        <option value="$PROJECT_DIR$/client/lab5-client/src/app/collection/collection.component.html" />
+        <option value="$PROJECT_DIR$/client/lab5-client/src/app/home/home.component.html" />
+        <option value="$PROJECT_DIR$/client/lab5-client/src/app/admin/admin.component.html" />
+        <option value="$PROJECT_DIR$/client/lab5-client/src/app/admin/admin.component.ts" />
+        <option value="$PROJECT_DIR$/client/lab5-client/src/app/collection/collection.component.ts" />
+        <option value="$PROJECT_DIR$/client/lab5-client/src/app/dialog/dialog.component.html" />
+        <option value="$PROJECT_DIR$/client/lab5-client/src/app/dialog/dialog.component.ts" />
+        <option value="$PROJECT_DIR$/client/lab5-client/src/app/home/home.component.ts" />
+        <option value="$PROJECT_DIR$/client/lab5-client/src/app/landing/landing.component.ts" />
         <option value="$PROJECT_DIR$/client/lab5-client/src/app/new-collection/new-collection.component.ts" />
+        <option value="$PROJECT_DIR$/client/lab5-client/src/app/privacy/privacy.component.html" />
+        <option value="$PROJECT_DIR$/server/server.js" />
       </list>
     </option>
   </component>
@@ -304,15 +308,6 @@
               <item name="lab5-client" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="se3316-jye64-lab5" type="b2602c69:ProjectViewProjectNode" />
-              <item name="se3316-jye64-lab5" type="462c0819:PsiDirectoryNode" />
-              <item name="client" type="462c0819:PsiDirectoryNode" />
-              <item name="lab5-client" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="new-collection" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="se3316-jye64-lab5" type="b2602c69:ProjectViewProjectNode" />
@@ -400,12 +395,12 @@
       <workItem from="1543879035046" duration="7329000" />
       <workItem from="1543934739671" duration="11070000" />
       <workItem from="1543957128363" duration="21802000" />
-      <workItem from="1544026798816" duration="16250000" />
+      <workItem from="1544026798816" duration="20774000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="225519000" />
+    <option name="totallyTimeSpent" value="230043000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -428,7 +423,7 @@
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.32946634" />
       <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4995579" weight="0.24745762" />
       <window_info id="Structure" order="1" sideWeight="0.503125" side_tool="true" weight="0.25675675" />
-      <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.4990991" visible="true" weight="0.32090396" />
+      <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.4990991" visible="true" weight="0.26101694" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -498,28 +493,11 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/client/lab5-client/src/app/app.component.css">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/client/lab5-client/src/app/app.component.ts">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/client/lab5-client/src/app/landing/landing.component.spec.ts">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/lab5-client/src/app/privacy/privacy.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="24" column="28" lean-forward="true" selection-start-line="24" selection-start-column="28" selection-end-line="24" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/lab5-client/src/app/privacy/privacy.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="28" lean-forward="true" selection-start-line="28" selection-end-line="28" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/client/lab5-client/src/app/admin/admin.component.css">
       <provider selected="true" editor-type-id="text-editor" />
@@ -537,28 +515,8 @@
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/lab5-client/src/app/app.module.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="243">
-          <caret line="29" column="21" lean-forward="true" selection-start-line="29" selection-start-column="21" selection-end-line="29" selection-end-column="21" />
-          <folding>
-            <element signature="e#0#58#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/client/lab5-client/src/app/app.component.html">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/lab5-client/src/app/dialog/dialog.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
-          <folding>
-            <element signature="n#style#0;n#button#0;n#div#1;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/server/models/userModel.js">
       <provider selected="true" editor-type-id="text-editor">
@@ -581,20 +539,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/lab5-client/src/app/collection/collection.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="21" column="3" selection-start-line="21" selection-start-column="3" selection-end-line="21" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/models/userItem.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="14" selection-start-line="16" selection-start-column="14" selection-end-line="16" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/server/models/log.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
@@ -602,42 +546,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/models/item.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" column="51" lean-forward="true" selection-start-line="17" selection-start-column="51" selection-end-line="17" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/lab5-client/src/app/dmca/dmca.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="56" selection-start-line="2" selection-start-column="56" selection-end-line="2" selection-end-column="56" />
-          <folding>
-            <element signature="n#style#0;n#p#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/lab5-client/src/app/dmca/dmca.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="22" column="27" selection-start-line="22" selection-start-column="27" selection-end-line="22" selection-end-column="27" />
-          <folding>
-            <element signature="e#0#50#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/client/lab5-client/src/app/landing/landing.component.css">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/lab5-client/src/app/landing/landing.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="403">
-          <caret line="33" lean-forward="true" selection-start-line="33" selection-end-line="33" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/client/lab5-client/src/app/signup/signup.component.spec.ts">
       <provider selected="true" editor-type-id="text-editor">
@@ -660,29 +570,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/lab5-client/src/app/signup/signup.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="10" selection-start-line="10" selection-start-column="4" selection-end-line="10" selection-end-column="10" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#form#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#form#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#form#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#div#1;n#form#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/lab5-client/src/app/signup/signup.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="22" column="14" lean-forward="true" selection-start-line="22" selection-start-column="14" selection-end-line="22" selection-end-column="14" />
-          <folding>
-            <element signature="e#0#50#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/client/lab5-client/src/app/signup.service.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="495">
@@ -690,13 +577,6 @@
           <folding>
             <element signature="e#0#53#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/lab5-client/src/app/landing/landing.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="18" selection-start-line="18" selection-end-line="18" />
         </state>
       </provider>
     </entry>
@@ -728,44 +608,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/lab5-client/src/app/admin/admin.component.spec.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="22" column="35" lean-forward="true" selection-start-line="22" selection-start-column="35" selection-end-line="22" selection-end-column="35" />
-          <folding>
-            <element signature="e#0#73#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/server/models/cart.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
           <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/lab5-client/src/app/dialog/dialog.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
-          <folding>
-            <element signature="e#0#59#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/lab5-client/src/app/admin/admin.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="236">
-          <caret line="78" column="3" lean-forward="true" selection-start-line="78" selection-start-column="3" selection-end-line="78" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/lab5-client/src/app/admin/admin.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="18" column="40" lean-forward="true" selection-start-line="18" selection-start-column="40" selection-end-line="18" selection-end-column="40" />
         </state>
       </provider>
     </entry>
@@ -782,13 +628,152 @@
     <entry file="file://$PROJECT_DIR$/client/lab5-client/src/app/home/home.component.spec.ts">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/lab5-client/src/app/home/home.component.ts">
+    <entry file="file://$PROJECT_DIR$/client/lab5-client/src/app/app.component.spec.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="333">
-          <caret line="191" column="7" lean-forward="true" selection-start-line="180" selection-start-column="4" selection-end-line="191" selection-end-column="7" />
+        <state>
+          <folding>
+            <element signature="e#0#55#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/models/collection.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="7" lean-forward="true" selection-start-line="10" selection-start-column="7" selection-end-line="10" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/lab5-client/src/app/admin/admin.component.spec.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="22" column="35" lean-forward="true" selection-start-line="22" selection-start-column="35" selection-end-line="22" selection-end-column="35" />
+          <folding>
+            <element signature="e#0#73#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/models/userItem.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="16" column="59" lean-forward="true" selection-start-line="16" selection-start-column="59" selection-end-line="16" selection-end-column="59" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/models/item.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" column="51" lean-forward="true" selection-start-line="17" selection-start-column="51" selection-end-line="17" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/lab5-client/src/app/admin/admin.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="462">
+          <caret line="120" column="36" lean-forward="true" selection-start-line="120" selection-start-column="36" selection-end-line="120" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/lab5-client/src/app/admin/admin.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="28" column="17" selection-start-line="28" selection-start-column="17" selection-end-line="28" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/lab5-client/src/app/collection/collection.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
+          <folding>
+            <element signature="n#style#0;n#button#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/lab5-client/src/app/collection/collection.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="21" column="21" selection-start-line="21" selection-start-column="21" selection-end-line="21" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/lab5-client/src/app/dialog/dialog.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" selection-start-line="1" selection-end-line="1" />
+          <folding>
+            <element signature="n#style#0;n#button#0;n#div#1;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/lab5-client/src/app/dialog/dialog.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="28" lean-forward="true" selection-start-line="9" selection-start-column="28" selection-end-line="9" selection-end-column="28" />
+          <folding>
+            <element signature="e#0#59#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/lab5-client/src/app/dmca/dmca.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="56" selection-start-line="2" selection-start-column="56" selection-end-line="2" selection-end-column="56" />
+          <folding>
+            <element signature="n#style#0;n#p#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/lab5-client/src/app/dmca/DMCA.ts">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/lab5-client/src/app/dmca/dmca.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="26" column="7" lean-forward="true" selection-start-line="26" selection-start-column="7" selection-end-line="26" selection-end-column="7" />
           <folding>
             <element signature="e#0#50#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/lab5-client/src/app/home/home.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="27" column="55" selection-start-line="27" selection-start-column="55" selection-end-line="27" selection-end-column="55" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#button#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/lab5-client/src/app/home/home.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3465">
+          <caret line="231" column="3" selection-start-line="231" selection-start-column="3" selection-end-line="231" selection-end-column="3" />
+          <folding>
+            <element signature="e#0#50#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/lab5-client/src/app/landing/landing.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/lab5-client/src/app/landing/landing.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="97">
+          <caret line="23" column="31" selection-start-line="23" selection-start-column="31" selection-end-line="23" selection-end-column="31" />
         </state>
       </provider>
     </entry>
@@ -806,62 +791,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/client/lab5-client/src/app/login/login.component.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="33" column="3" lean-forward="true" selection-start-line="33" selection-start-column="3" selection-end-line="33" selection-end-column="3" />
+        <state relative-caret-position="234">
+          <caret line="31" column="13" lean-forward="true" selection-start-line="31" selection-start-column="13" selection-end-line="31" selection-end-column="13" />
           <folding>
             <element signature="e#0#50#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/lab5-client/src/app/app.component.spec.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#55#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/server.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="193">
-          <caret line="561" column="30" lean-forward="true" selection-start-line="561" selection-start-column="30" selection-end-line="561" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/lab5-client/src/app/collection/collection.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
-          <folding>
-            <element signature="n#style#0;n#button#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/lab5-client/src/app/home/home.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#button#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/models/collection.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="7" lean-forward="true" selection-start-line="10" selection-start-column="7" selection-end-line="10" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/client/lab5-client/src/app/new-collection/new-collection.component.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="359">
-          <caret line="51" lean-forward="true" selection-start-line="51" selection-end-line="51" />
+        <state relative-caret-position="193">
+          <caret line="15" column="21" selection-start-line="15" selection-start-column="18" selection-end-line="15" selection-end-column="21" />
           <folding>
             <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#div#0;n#!!top" expanded="true" />
@@ -872,11 +813,65 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/client/lab5-client/src/app/new-collection/new-collection.component.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="149">
-          <caret line="80" lean-forward="true" selection-start-line="80" selection-end-line="80" />
+        <state relative-caret-position="1305">
+          <caret line="87" column="28" lean-forward="true" selection-start-line="87" selection-start-column="28" selection-end-line="87" selection-end-column="28" />
           <folding>
             <element signature="e#0#50#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/lab5-client/src/app/privacy/privacy.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/lab5-client/src/app/privacy/privacy.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="24" column="9" lean-forward="true" selection-start-line="24" selection-start-column="9" selection-end-line="24" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/lab5-client/src/app/signup/signup.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="10" selection-start-line="10" selection-start-column="4" selection-end-line="10" selection-end-column="10" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#form#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#form#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#form#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#div#1;n#form#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/lab5-client/src/app/signup/signup.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="412">
+          <caret line="33" column="11" lean-forward="true" selection-start-line="33" selection-start-column="11" selection-end-line="33" selection-end-column="11" />
+          <folding>
+            <element signature="e#0#50#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/lab5-client/src/app/app.module.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="243">
+          <caret line="29" column="20" lean-forward="true" selection-start-line="29" selection-start-column="20" selection-end-line="29" selection-end-column="20" />
+          <folding>
+            <element signature="e#0#58#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/server.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="412">
+          <caret line="662" lean-forward="true" selection-start-line="662" selection-end-line="662" />
         </state>
       </provider>
     </entry>

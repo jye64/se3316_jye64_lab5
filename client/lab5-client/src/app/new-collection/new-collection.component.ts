@@ -28,6 +28,7 @@ export class NewCollectionComponent implements OnInit {
     this.show = !this.show;
   }
 
+  // create new collection
   add(){
     var pub:boolean;
     if(this.model.privacy){
@@ -44,6 +45,7 @@ export class NewCollectionComponent implements OnInit {
     })
   }
 
+  // load collections
   getCollections(){
     var request = new Request('http://localhost:8081/api/collections', {
       method: 'GET',

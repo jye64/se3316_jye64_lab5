@@ -130,8 +130,6 @@ export class HomeComponent implements OnInit {
     this.getCollection();
   }
 
-  buy() {
-  }
 
   // not working
   submitRating(name,rate){
@@ -152,13 +150,7 @@ export class HomeComponent implements OnInit {
     });
   }
 
-  showInfo() {
-    this.show = !this.show;
-  }
 
-  toggleCreate(){
-    this.showCreate = !this.showCreate;
-  }
 
   // dialog for clear cart confirmation
   openClearConfirmationDialog(){
@@ -193,6 +185,51 @@ export class HomeComponent implements OnInit {
 
   }
 
+  // dialog for saving comment confirmation
+  openSaveCommentDialog(){
+    this.dialogRef = this.dialog.open(DialogComponent,{
+      disableClose:false,
+      autoFocus: true,
+    });
+    this.dialogRef.componentInstance.confirmationMsg = "Please confirm your action";
+
+    this.dialogRef.afterClosed().subscribe(result=>{
+      if(result){
+        // this.submitRating(name,rate);
+      }
+      this.dialogRef = null;
+    });
+
+  }
+
+  // dialog for saving rating confirmation
+  openSaveRatingDialog(){
+    this.dialogRef = this.dialog.open(DialogComponent,{
+      disableClose:false,
+      autoFocus: true,
+    });
+    this.dialogRef.componentInstance.confirmationMsg = "Please confirm your action";
+
+    this.dialogRef.afterClosed().subscribe(result=>{
+      if(result){
+        // this.submitComment(name,comment);
+      }
+      this.dialogRef = null;
+    });
+
+  }
+
+  // TODO
+  buy() {
+  }
+
+  showInfo() {
+    this.show = !this.show;
+  }
+
+  toggleCreate(){
+    this.showCreate = !this.showCreate;
+  }
 
 }
 

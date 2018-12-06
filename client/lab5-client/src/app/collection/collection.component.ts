@@ -13,6 +13,7 @@ export class CollectionComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    // load public collections when the page is loaded
     this.getCollection();
   }
 

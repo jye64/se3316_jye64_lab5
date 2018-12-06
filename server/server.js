@@ -400,6 +400,7 @@ router.route('/useritems/rating')
     });
 
 
+// update stock level
 router.route('/useritems/stock')
     .put(function(req,res){
         UserItem.updateOne({ name:req.body.name },

@@ -113,11 +113,12 @@ export class AdminComponent implements OnInit {
   }
 
 
-
+  // make the delete component visible
   toggleDelete(){
     this.showDelete = !this.showDelete;
   }
 
+  // make the add componenet visible
   toggleAdd(){
     this.showAdd = !this.showAdd;
   }

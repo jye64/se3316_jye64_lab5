@@ -20,6 +20,8 @@ export class LandingComponent implements OnInit {
   ngOnInit() {
   }
 
+
+  // manages the states of ngIf
   showLogin(){
     this.login = true;
     this.loginBtn = false;
