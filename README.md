@@ -1,1 +1,4 @@
-# se3316_jye64_lab5
+# Online Store
+
+Front-end: Augular
+Back-end: Express and Node
